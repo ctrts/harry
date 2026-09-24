@@ -1700,6 +1700,8 @@ def restore_primary_runtime(agent) -> bool:
 
 
 # Transient transport failures worth one more attempt with a rebuilt client / connection pool.
+# Includes 5xx server errors (InternalServerError/502/503): proxies like ngrok intermittently
+# return 500 "gateway error" for otherwise-healthy backends, and those are safe to retry.
 _TRANSIENT_TRANSPORT_ERRORS = frozenset(
     {
         "ReadTimeout",
@@ -1710,6 +1712,7 @@ _TRANSIENT_TRANSPORT_ERRORS = frozenset(
         "RemoteProtocolError",
         "APIConnectionError",
         "APITimeoutError",
+        "InternalServerError",
     }
 )
 _INLINE_REASONING_PATTERNS = tuple(
