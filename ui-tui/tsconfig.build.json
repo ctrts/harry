@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@harry/ink": ["src/types/harry-ink.d.ts"]
+    }
+  }
+}

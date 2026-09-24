@@ -1,0 +1,17 @@
+name: githarry
+repo: https://github.com/claudioorjunior/githarry
+sha: 09d5b566da650290dc0d639ea1e77def4bcdab31
+description: GitHub PRs and issues as a right workspace pane in Harry Desktop, via the connected gh CLI. Disclosure — shells out to your logged-in gh CLI; the in-pane update pill only runs `harry plugins update githarry` (no fetch-and-replace) and currently compares against upstream main rather than the pinned sha.
+maintainer: claudioorjunior
+tier: community
+category: desktop
+requires_harry: ">=0.21.1"
+docs_url: https://github.com/claudioorjunior/githarry#readme
+version: "0.5.0"
+image: https://raw.githubusercontent.com/claudioorjunior/githarry/09d5b566da650290dc0d639ea1e77def4bcdab31/docs/social-preview.png
+platforms: []
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
