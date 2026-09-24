@@ -15,7 +15,7 @@ Harry isn't just a CLI tool. You can import `AIAgent` directly and use it progra
 Clone Harry and create its supported editable development environment:
 
 ```bash
-git clone https://github.com/harry/harry-agent.git
+git clone https://github.com/ctrts/harry.git
 cd harry-agent
 uv sync
 ```

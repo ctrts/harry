@@ -1,10 +1,10 @@
 # Harry Desktop ☤
 
 <p align="center">
-  <a href="https://github.com/harry/harry-agent/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
+  <a href="https://github.com/ctrts/harry/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
   <a href="https://harry-agent.harry-agent.local/docs/"><img src="https://img.shields.io/badge/Docs-harry--agent.harry-agent.local-FFD700?style=for-the-badge" alt="Documentation"></a>
   <a href="https://#"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/harry/harry-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
+  <a href="https://github.com/ctrts/harry/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
 </p>
 
 **The native desktop app for [Harry Agent](../../README.md) — the self-improving AI agent from [the Harry project](https://harry-agent.local).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
@@ -249,7 +249,7 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\harry\harry-agent\venv"
 
 - 💬 [Discord](https://#)
 - 📖 [Documentation](https://harry-agent.harry-agent.local/docs/)
-- 🐛 [Issues](https://github.com/harry/harry-agent/issues)
+- 🐛 [Issues](https://github.com/ctrts/harry/issues)
 
 ---
 

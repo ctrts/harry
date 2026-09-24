@@ -34,7 +34,7 @@ def git_repo(tmp_path, monkeypatch):
 
 
 def _stub_git(
-    monkeypatch, *, head=SHA_A, origin="https://github.com/harry/harry-agent.git"
+    monkeypatch, *, head=SHA_A, origin="https://github.com/ctrts/harry.git"
 ):
     calls = []
 
@@ -61,7 +61,7 @@ def test_passive_check_uses_the_api_and_never_fetches(git_repo, monkeypatch):
     monkeypatch.setattr(banner, "_github_compare_behind", lambda cur, tgt: 61)
 
     assert banner.check_for_updates() == 61
-    tip.assert_called_once_with("nousresearch/harry-agent", "main")
+    tip.assert_called_once_with("ctrts/harry", "main")
     assert not any(c[1] in {"fetch", "ls-remote"} for c in calls)
 
     cached = json.loads((git_repo.parent / ".update_check").read_text())

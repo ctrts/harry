@@ -357,7 +357,7 @@ _IMAGE_API_INTS = (
 _ATTRIBUTION_HEADERS = {
     "Content-Type": "application/json",
     # OpenRouter attribution headers (harmless against Nous Portal).
-    "HTTP-Referer": "https://github.com/harry/harry-agent",
+    "HTTP-Referer": "https://github.com/ctrts/harry",
     "X-Title": "Harry Agent",
 }
 

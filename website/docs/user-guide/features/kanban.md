@@ -1186,7 +1186,7 @@ abandons its own. Instead, create a reconciliation card assigned to a **third,
 neutral profile** with **both** conflicted cards linked as parents: the parent
 links carry both sides' completion summaries into the reconciler's context, so
 it receives both diffs *and* both intents. The bundled
-[`agent-merge-conflict-arbiter` optional skill](https://github.com/harry/harry-agent/blob/main/optional-skills/autonomous-ai-agents/agent-merge-conflict-arbiter/SKILL.md)
+[`agent-merge-conflict-arbiter` optional skill](https://github.com/ctrts/harry/blob/main/optional-skills/autonomous-ai-agents/agent-merge-conflict-arbiter/SKILL.md)
 gives that worker the full procedure: classify each conflicted hunk, resolve
 impartially, verify, and hand back a summary naming every decision.
 

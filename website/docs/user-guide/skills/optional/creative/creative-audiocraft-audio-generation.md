@@ -576,8 +576,8 @@ for desc in descriptions:
 
 ## References
 
-- **[Advanced Usage](https://github.com/harry/harry-agent/blob/main/optional-skills/creative/audiocraft-audio-generation/references/advanced-usage.md)** - Training, fine-tuning, deployment
-- **[Troubleshooting](https://github.com/harry/harry-agent/blob/main/optional-skills/creative/audiocraft-audio-generation/references/troubleshooting.md)** - Common issues and solutions
+- **[Advanced Usage](https://github.com/ctrts/harry/blob/main/optional-skills/creative/audiocraft-audio-generation/references/advanced-usage.md)** - Training, fine-tuning, deployment
+- **[Troubleshooting](https://github.com/ctrts/harry/blob/main/optional-skills/creative/audiocraft-audio-generation/references/troubleshooting.md)** - Common issues and solutions
 
 ## Resources
 

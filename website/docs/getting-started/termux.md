@@ -135,7 +135,7 @@ Then use `python3.13` in place of `python` in the commands below
 ### 2. Clone Harry
 
 ```bash
-git clone https://github.com/harry/harry-agent.git
+git clone https://github.com/ctrts/harry.git
 cd harry-agent
 ```
 

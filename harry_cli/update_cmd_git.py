@@ -22,7 +22,7 @@ _ORPHAN_RESCUE_REF_MAX_AGE_DAYS = 30
 
 _GIT_TEXT_KW = dict(capture_output=True, text=True, encoding="utf-8", errors="replace")
 _BAR = "=" * 68
-_UPSTREAM_ADD_CMD = "git remote add upstream https://github.com/harry/harry-agent.git"
+_UPSTREAM_ADD_CMD = "git remote add upstream https://github.com/ctrts/harry.git"
 
 
 def _git_ok(git_cmd, args, cwd, **kw) -> bool:
@@ -215,12 +215,12 @@ def _print_parked_branch_kept_notice(
 
 
 OFFICIAL_REPO_URLS = {
-    "https://github.com/harry/harry-agent.git",
-    "git@github.com:harry/harry-agent.git",
-    "https://github.com/harry/harry-agent",
-    "git@github.com:harry/harry-agent",
+    "https://github.com/ctrts/harry.git",
+    "git@github.com:ctrts/harry.git",
+    "https://github.com/ctrts/harry",
+    "git@github.com:ctrts/harry",
 }
-OFFICIAL_REPO_URL = "https://github.com/harry/harry-agent.git"
+OFFICIAL_REPO_URL = "https://github.com/ctrts/harry.git"
 SKIP_UPSTREAM_PROMPT_FILE = ".skip_upstream_prompt"
 
 
@@ -324,7 +324,7 @@ def _offer_upstream_remote(
     if not _add_upstream_remote(git_cmd, cwd):
         print("  ✗ Failed to add upstream remote. Skipping upstream sync.")
         return False
-    print("  ✓ Added upstream: https://github.com/harry/harry-agent.git")
+    print("  ✓ Added upstream: https://github.com/ctrts/harry.git")
     return True
 
 
@@ -451,7 +451,7 @@ _FETCH_FAILURE_RULES = (
         lambda s: "Permission denied (publickey)" in s
         or "Host key verification failed" in s,
         "✗ SSH authentication failed — check your SSH key is added to GitHub, or switch"
-        " `origin` to HTTPS: `git remote set-url origin https://github.com/harry/harry-agent.git`.",
+        " `origin` to HTTPS: `git remote set-url origin https://github.com/ctrts/harry.git`.",
     ),
 )
 

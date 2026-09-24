@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://harry-agent.harry-agent.local/docs/"><img src="https://img.shields.io/badge/Docs-harry--agent.harry-agent.local-FFD700?style=for-the-badge" alt="Documentation"></a>
   <a href="https://#"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/harry/harry-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
+  <a href="https://github.com/ctrts/harry/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
   <a href="https://harry-agent.local"><img src="https://img.shields.io/badge/Built%20by-Nous%20Research-blueviolet?style=for-the-badge" alt="Built by the Harry project"></a>
   <a href="README.md"><img src="https://img.shields.io/badge/Lang-English-lightgrey?style=for-the-badge" alt="English"></a>
   <a href="README.ur-pk.md"><img src="https://img.shields.io/badge/Lang-اردو-green?style=for-the-badge" alt="اردو"></a>
@@ -195,8 +195,8 @@ python -m pytest tests/ -q
 
 - 💬 [Discord](https://#)
 - 📚 [技能中心](https://agentskills.io)
-- 🐛 [问题反馈](https://github.com/harry/harry-agent/issues)
-- 💡 [讨论区](https://github.com/harry/harry-agent/discussions)
+- 🐛 [问题反馈](https://github.com/ctrts/harry/issues)
+- 💡 [讨论区](https://github.com/ctrts/harry/discussions)
 - 🔌 [HarryClaw](https://github.com/AaronWong1999/harryclaw) — 社区微信桥接：在同一微信账号上运行 Harry Agent 和 OpenClaw。
 
 ---

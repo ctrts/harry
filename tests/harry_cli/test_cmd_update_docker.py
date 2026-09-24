@@ -44,7 +44,7 @@ def test_cmd_update_in_docker_prints_guidance_and_exits(
     # Spot-check the key guidance — exhaustive wording is locked in by the
     # config-module test below to keep these CLI tests resilient to copy edits.
     assert "doesn't apply inside the Docker container" in out
-    assert "docker pull nousresearch/harry-agent:latest" in out
+    assert "docker pull ctrts/harry:latest" in out
 
     # No git invocations — the early-return must beat every git command.
     git_calls = [

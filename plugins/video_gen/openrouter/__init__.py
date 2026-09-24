@@ -253,7 +253,7 @@ class OpenRouterVideoGenProvider(VideoGenProvider):
         return {
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://github.com/harry/harry-agent",
+            "HTTP-Referer": "https://github.com/ctrts/harry",
             "X-Title": "Harry Agent",
         }
 

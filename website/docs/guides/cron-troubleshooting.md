@@ -224,7 +224,7 @@ If you've worked through this guide and the issue persists:
 
 1. Run the job with `harry cron run <job_id>` (fires on next gateway tick) and watch for errors in the chat output
 2. Check `~/.harry/logs/agent.log` for scheduler messages and `~/.harry/logs/errors.log` for warnings
-3. Open an issue at [github.com/harry/harry-agent](https://github.com/harry/harry-agent) with:
+3. Open an issue at [github.com/harry/harry-agent](https://github.com/ctrts/harry) with:
    - The job ID and schedule
    - The delivery target
    - What you expected vs. what happened

@@ -14,7 +14,7 @@ RATE_LIMIT_STDERR = (
     "fatal: expected flush after ref listing"
 )
 CURL_429_STDERR = (
-    "fatal: unable to access 'https://github.com/harry/harry-agent.git/':"
+    "fatal: unable to access 'https://github.com/ctrts/harry.git/':"
     " The requested URL returned error: 429"
 )
 
@@ -75,7 +75,7 @@ class TestClassifyFetchFailure:
             "fatal: Could not read from remote repository."
         )
         assert "SSH authentication failed" in msg
-        assert "https://github.com/harry/harry-agent.git" in msg
+        assert "https://github.com/ctrts/harry.git" in msg
 
     def test_ssh_host_key_failure_reports_ssh_auth(self):
         msg = update_cmd._classify_fetch_failure(

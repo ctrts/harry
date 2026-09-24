@@ -79,8 +79,8 @@ test('compare payload maps to the behind count and a newest-first commit list; m
   assert.equal(githubRepoSlug('git@github.com:Someone/harry-agent.git'), 'someone/harry-agent')
   assert.equal(githubRepoSlug('https://gitlab.example/x/y.git'), null)
   assert.equal(
-    branchTipApiUrl('nousresearch/harry-agent', 'bb/gui'),
-    'https://api.github.com/repos/nousresearch/harry-agent/commits/bb%2Fgui'
+    branchTipApiUrl('ctrts/harry', 'bb/gui'),
+    'https://api.github.com/repos/ctrts/harry/commits/bb%2Fgui'
   )
 })
 

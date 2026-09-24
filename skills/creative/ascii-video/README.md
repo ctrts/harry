@@ -2,7 +2,7 @@
 
 Renders any content as colored ASCII character video. Audio, video, images, text, or pure math in, MP4/GIF/PNG sequence out. Full RGB color per character cell, 1080p 24fps default. No GPU.
 
-Built for [Harry Agent](https://github.com/harry/harry-agent). Usable in any coding agent. Canonical source lives here; synced to [`harry/harry-agent/skills/creative/ascii-video`](https://github.com/harry/harry-agent/tree/main/skills/creative/ascii-video) via PR.
+Built for [Harry Agent](https://github.com/ctrts/harry). Usable in any coding agent. Canonical source lives here; synced to [`harry/harry-agent/skills/creative/ascii-video`](https://github.com/ctrts/harry/tree/main/skills/creative/ascii-video) via PR.
 
 ## What this is
 

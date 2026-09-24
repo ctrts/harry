@@ -177,7 +177,7 @@ async function locateHarry(ssh, remoteHarryPath) {
     //   - version checking: `<python> --version` printed "Python x.y.z" instead of
     //     the Harry version, and
     //   - capability probing: `<python> serve --help` failed entirely.
-    // See https://github.com/harry/harry-agent/issues/74411
+    // See https://github.com/ctrts/harry/issues/74411
     return candidate
   }
 

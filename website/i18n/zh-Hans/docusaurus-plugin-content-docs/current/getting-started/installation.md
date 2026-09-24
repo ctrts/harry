@@ -20,7 +20,7 @@ curl -fsSL https://harry-agent.harry-agent.local/install.sh | bash
 
 ### Windows（原生，PowerShell）
 
-原生 Windows 无需 WSL 即可运行 Harry——CLI、gateway、TUI 和工具均可原生运行。（原生安装与 WSL2 安装可干净共存；唯一仅限 WSL2 的功能见下方功能说明。）遇到 bug 请[提交 issue](https://github.com/harry/harry-agent/issues)。
+原生 Windows 无需 WSL 即可运行 Harry——CLI、gateway、TUI 和工具均可原生运行。（原生安装与 WSL2 安装可干净共存；唯一仅限 WSL2 的功能见下方功能说明。）遇到 bug 请[提交 issue](https://github.com/ctrts/harry/issues)。
 
 打开 PowerShell 并运行：
 

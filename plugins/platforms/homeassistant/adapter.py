@@ -93,7 +93,7 @@ def _connect_error_detail(exc: BaseException) -> str:
         return (
             f"{text} — macOS Local Network Privacy is blocking this launchd gateway from the LAN. "
             "Run `harry gateway install` to regenerate the launchd job, then `harry gateway restart`. "
-            "https://github.com/harry/harry-agent/issues/71206"
+            "https://github.com/ctrts/harry/issues/71206"
         )
     return text
 

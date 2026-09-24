@@ -13,7 +13,7 @@ required_credential_files:
 metadata:
   harry:
     tags: [Google, Gmail, Calendar, Drive, Sheets, Docs, Contacts, Email, OAuth]
-    homepage: https://github.com/harry/harry-agent
+    homepage: https://github.com/ctrts/harry
     related_skills: [himalaya]
 ---
 

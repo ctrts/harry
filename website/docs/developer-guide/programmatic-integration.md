@@ -105,7 +105,7 @@ When the gateway withdraws a question (timeout, interrupt, answered from another
 
 ### Pi-style RPC mapping
 
-Every command in the Pi-mono RPC spec ([issue #360](https://github.com/harry/harry-agent/issues/360)) has a TUI-gateway equivalent:
+Every command in the Pi-mono RPC spec ([issue #360](https://github.com/ctrts/harry/issues/360)) has a TUI-gateway equivalent:
 
 | Pi command | Harry equivalent |
 |------------|-------------------|

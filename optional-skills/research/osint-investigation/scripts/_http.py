@@ -14,7 +14,7 @@ import urllib.request
 
 DEFAULT_UA = (
     "harry-osint-investigation/0.2 "
-    "(+https://github.com/harry/harry-agent; "
+    "(+https://github.com/ctrts/harry; "
     "set HARRY_OSINT_UA env var to identify yourself per "
     "Wikimedia / SEC fair-use guidance)"
 )

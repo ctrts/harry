@@ -2470,7 +2470,7 @@ def generate_changelog(
     commits,
     tag_name,
     semver,
-    repo_url="https://github.com/harry/harry-agent",
+    repo_url="https://github.com/ctrts/harry",
     prev_tag=None,
     first_release=False,
 ):

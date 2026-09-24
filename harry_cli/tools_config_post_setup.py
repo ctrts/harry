@@ -167,7 +167,7 @@ def _post_setup_agent_browser(post_setup_key: str) -> None:
         _print_warning("    Chromium is missing but you're running in Docker.")
         _info_lines(
             "Pull the latest image to get the bundled Chromium:",
-            "  docker pull ghcr.io/nousresearch/harry-agent:latest",
+            "  docker pull ghcr.io/ctrts/harry:latest",
         )
         return
 

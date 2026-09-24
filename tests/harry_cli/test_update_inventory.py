@@ -103,7 +103,7 @@ class TestCollectInventory:
         )
         monkeypatch.setattr(
             "harry_cli.config.recommended_update_command_for_method",
-            lambda m: "docker pull nousresearch/harry-agent:latest",
+            lambda m: "docker pull ctrts/harry:latest",
         )
         plan = ui.collect_runtime_inventory()
         assert plan.install_method == "docker"

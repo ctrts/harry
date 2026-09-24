@@ -4,8 +4,8 @@ Verifies that Harry-managed provider, tool, and gateway env vars are
 stripped from subprocess environments so external CLIs are not silently
 misrouted or handed Harry secrets.
 
-See: https://github.com/harry/harry-agent/issues/1002
-See: https://github.com/harry/harry-agent/issues/1264
+See: https://github.com/ctrts/harry/issues/1002
+See: https://github.com/ctrts/harry/issues/1264
 """
 
 import os

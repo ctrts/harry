@@ -160,7 +160,7 @@ describe('preprocessMarkdown', () => {
   })
 
   it('does not autolink canonical markdown links', () => {
-    const input = '[link](https://github.com/harry/harry-agent/issues)'
+    const input = '[link](https://github.com/ctrts/harry/issues)'
     const output = preprocessMarkdown(input)
 
     expect(output).toBe(input)
@@ -246,13 +246,13 @@ describe('preprocessMarkdown', () => {
   })
 
   it('does not swallow trailing emphasis asterisks into an autolinked url', () => {
-    const input = '**PR opened: https://github.com/harry/harry-agent/pull/12345**'
+    const input = '**PR opened: https://github.com/ctrts/harry/pull/12345**'
 
     const output = preprocessMarkdown(input)
 
     // The URL is autolinked WITHOUT the trailing `**` glued into the href,
     // and the bold emphasis run stays intact so it renders as bold + a link.
-    expect(output).toContain('<https://github.com/harry/harry-agent/pull/12345>')
+    expect(output).toContain('<https://github.com/ctrts/harry/pull/12345>')
     expect(output).not.toContain('pull/12345**>')
     expect(output).not.toContain('12345*')
   })

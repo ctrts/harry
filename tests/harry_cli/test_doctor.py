@@ -28,7 +28,7 @@ class TestDoctorPlatformHints:
 
         hint = doctor_platform._sqlite_upgrade_hint()
 
-        assert "docker pull nousresearch/harry-agent:latest" in hint
+        assert "docker pull ctrts/harry:latest" in hint
         assert "harry update" not in hint
 
     def test_sqlite_upgrade_hint_uses_pkg_for_apt_managed_install(self):

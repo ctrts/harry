@@ -70,7 +70,7 @@ The `default` package adds ~700 MB to the closure. If you only need messaging pl
 <summary><strong>Running from a local clone</strong></summary>
 
 ```bash
-git clone https://github.com/harry/harry-agent.git
+git clone https://github.com/ctrts/harry.git
 cd harry-agent
 nix develop
 harry setup

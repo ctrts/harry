@@ -151,7 +151,7 @@ def _local_git(head_sha):
     def fake_run(cmd, **kwargs):
         if cmd[:4] == ["git", "remote", "get-url", "origin"]:
             return MagicMock(
-                returncode=0, stdout="https://github.com/harry/harry-agent.git\n"
+                returncode=0, stdout="https://github.com/ctrts/harry.git\n"
             )
         if cmd[:3] == ["git", "rev-parse", "HEAD"]:
             return MagicMock(returncode=0, stdout=f"{head_sha}\n")

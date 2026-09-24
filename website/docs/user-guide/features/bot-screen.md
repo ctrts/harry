@@ -51,7 +51,7 @@ reverse proxy's access log may record an already-spent ticket.
   manager directly, with no sudo and no password card. When it is not root and
   the host has no `sudo` at all, the pane and the CLI print the exact install
   command for you to run on the host instead of showing a card. The official
-  Docker image (`nousresearch/harry-agent`, which also powers Harry Cloud) is
+  Docker image (`ctrts/harry`, which also powers Harry Cloud) is
   that second case: the gateway runs as an unprivileged user and the image has no
   `sudo`, so the pane shows the `apt-get` line and an operator runs it once as
   root in the container (`docker exec -u 0 <container> apt-get install -y …`).

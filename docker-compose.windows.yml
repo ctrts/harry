@@ -11,7 +11,7 @@
 #
 services:
   gateway:
-    image: nousresearch/harry-agent:latest
+    image: ctrts/harry:latest
     container_name: harry
     restart: unless-stopped
     volumes:
@@ -22,7 +22,7 @@ services:
     command: ["gateway", "run"]
 
   dashboard:
-    image: nousresearch/harry-agent:latest
+    image: ctrts/harry:latest
     container_name: harry-dashboard
     restart: unless-stopped
     depends_on:

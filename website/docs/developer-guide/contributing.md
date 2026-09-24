@@ -89,7 +89,7 @@ which silently destroys the running runtime mid-session. Keeping it outside the
 tree means no relative path from the workspace resolves to it.
 
 ```bash
-git clone https://github.com/harry/harry-agent.git
+git clone https://github.com/ctrts/harry.git
 cd harry-agent
 
 # Create venv with Python 3.11, OUTSIDE the source tree
@@ -143,7 +143,7 @@ scripts/run_tests.sh
 - **Comments**: Only when explaining non-obvious intent, trade-offs, or API quirks
 - **Error handling**: Catch specific exceptions. Use `logger.warning()`/`logger.error()` with `exc_info=True` for unexpected errors
 - **Cross-platform**: Never assume Unix (see below)
-- **Profile-safe paths**: Never hardcode `~/.harry` — use `get_harry_home()` from `harry_constants` for code paths and `display_harry_home()` for user-facing messages. See [AGENTS.md](https://github.com/harry/harry-agent/blob/main/AGENTS.md#profiles-multi-instance-support) for full rules.
+- **Profile-safe paths**: Never hardcode `~/.harry` — use `get_harry_home()` from `harry_constants` for code paths and `display_harry_home()` for user-facing messages. See [AGENTS.md](https://github.com/ctrts/harry/blob/main/AGENTS.md#profiles-multi-instance-support) for full rules.
 
 ## Cross-Platform Compatibility
 
@@ -286,7 +286,7 @@ When you ask Harry to review a PR in a repository that has `.agents/checks/`, te
 
 ## Reporting Issues
 
-- Use [GitHub Issues](https://github.com/harry/harry-agent/issues)
+- Use [GitHub Issues](https://github.com/ctrts/harry/issues)
 - Include: OS, Python version, Harry version (`harry --version`), full error traceback
 - Include steps to reproduce
 - Check existing issues before creating duplicates
@@ -300,4 +300,4 @@ When you ask Harry to review a PR in a repository that has `.agents/checks/`, te
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the [MIT License](https://github.com/harry/harry-agent/blob/main/LICENSE).
+By contributing, you agree that your contributions will be licensed under the [MIT License](https://github.com/ctrts/harry/blob/main/LICENSE).

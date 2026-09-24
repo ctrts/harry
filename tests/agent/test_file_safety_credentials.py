@@ -1,6 +1,6 @@
 """Tests for HARRY_HOME credential-file read blocking in file_safety.
 
-Regression for https://github.com/harry/harry-agent/issues/17656 —
+Regression for https://github.com/ctrts/harry/issues/17656 —
 ``read_file`` was previously only sandboxed against ``HARRY_HOME`` itself,
 which left ``auth.json`` and ``.anthropic_oauth.json`` (plaintext provider
 keys + OAuth tokens) readable by the agent. A prompt-injection reaching

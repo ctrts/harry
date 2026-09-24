@@ -71,7 +71,7 @@ def _discord_request(
         headers={
             "Authorization": f"Bot {token}",
             "Content-Type": "application/json",
-            "User-Agent": "Harry-Agent (https://github.com/harry/harry-agent)",
+            "User-Agent": "Harry-Agent (https://github.com/ctrts/harry)",
         },
     )
     try:

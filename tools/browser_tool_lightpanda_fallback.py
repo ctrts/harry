@@ -204,7 +204,7 @@ def _run_chrome_fallback_command(
         if _install._running_in_docker():
             hint = (
                 "Chrome fallback requires Chromium, but it is missing. You're running in Docker — "
-                "pull the latest image: docker pull ghcr.io/nousresearch/harry-agent:latest"
+                "pull the latest image: docker pull ghcr.io/ctrts/harry:latest"
             )
         else:
             hint = (

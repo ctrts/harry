@@ -39,7 +39,7 @@ same reviewed commit this page describes.
 ## What's in an entry
 
 Each catalog entry is a small YAML file in the
-[`plugin-catalog/`](https://github.com/harry/harry-agent/tree/main/plugin-catalog)
+[`plugin-catalog/`](https://github.com/ctrts/harry/tree/main/plugin-catalog)
 directory of the harry-agent repository, declaring:
 
 | Field | Meaning |
@@ -210,7 +210,7 @@ catalog for discovery.
 
 Submissions are pull requests that add one `plugin-catalog/<name>.yaml` file.
 The full checklist lives in the
-[plugin-catalog README](https://github.com/harry/harry-agent/tree/main/plugin-catalog);
+[plugin-catalog README](https://github.com/ctrts/harry/tree/main/plugin-catalog);
 in short, an entry must be:
 
 1. **Owner-submitted** — the PR author owns or maintains the plugin repo.

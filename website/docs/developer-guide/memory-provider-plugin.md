@@ -18,7 +18,7 @@ Harry discovers memory providers from four sources, in this precedence order:
 
 | Source | Location | Notes |
 |---|---|---|
-| Bundled | `plugins/memory/<name>/` | Ships with Harry. Closed to new providers — see [CONTRIBUTING](https://github.com/harry/harry-agent/blob/main/CONTRIBUTING.md). |
+| Bundled | `plugins/memory/<name>/` | Ships with Harry. Closed to new providers — see [CONTRIBUTING](https://github.com/ctrts/harry/blob/main/CONTRIBUTING.md). |
 | User | `$HARRY_HOME/plugins/<name>/` | Dropped in by the user, per profile. |
 | Project | `./.harry/plugins/<name>/` | Opt-in via `HARRY_ENABLE_PROJECT_PLUGINS=1`. |
 | Package | `harry_agent.memory_providers` entry point | `pip install`, nothing to copy. |

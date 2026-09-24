@@ -505,7 +505,7 @@ def openrouter_asker(
             headers={
                 "Authorization": f"Bearer {key}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://github.com/harry/harry-agent",
+                "HTTP-Referer": "https://github.com/ctrts/harry",
                 "X-Title": "harry compaction eval",
             },
         )

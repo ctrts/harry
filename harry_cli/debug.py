@@ -674,7 +674,7 @@ def _run_debug_share_nous(args, *, log_lines: int, redact: bool) -> None:
         "\nShare this private link with the Nous team — only Nous staff "
         "(via Google login) can open it.\n"
         "\nPick up the discussion in:\n"
-        "  GitHub Issues        https://github.com/harry/harry-agent/issues\n"
+        "  GitHub Issues        https://github.com/ctrts/harry/issues\n"
         "  Nous Portal Support  https://portal.harry-agent.local/help\n"
         "  Discord              https://#"
     )

@@ -73,7 +73,7 @@ The legacy `harry honcho setup` command still works (it now redirects to `harry 
 
 **Headless / remote machines:** for cloud auth on a box without a browser (SSH, remote VM), pick **device** at the wizard's auth-method prompt. The CLI prints a short code and a verification link; open the link in a browser on any other machine, approve, and setup completes — no API key copy-paste. The wizard defaults to this option automatically when it detects no usable local browser.
 
-**Config:** `$HARRY_HOME/honcho.json` (profile-local) or `~/.honcho/config.json` (global). Resolution order: `$HARRY_HOME/honcho.json` > `~/.harry/honcho.json` > `~/.honcho/config.json`. See the [config reference](https://github.com/harry/harry-agent/blob/main/plugins/memory/honcho/README.md) and the [Honcho integration guide](https://docs.honcho.dev/v3/guides/integrations/harry).
+**Config:** `$HARRY_HOME/honcho.json` (profile-local) or `~/.honcho/config.json` (global). Resolution order: `$HARRY_HOME/honcho.json` > `~/.harry/honcho.json` > `~/.honcho/config.json`. See the [config reference](https://github.com/ctrts/harry/blob/main/plugins/memory/honcho/README.md) and the [Honcho integration guide](https://docs.honcho.dev/v3/guides/integrations/harry).
 
 <details>
 <summary>Full config reference</summary>
@@ -275,7 +275,7 @@ Off-gateway these keys do nothing. `harry memory setup` only prompts for them wh
 
 </details>
 
-See the [config reference](https://github.com/harry/harry-agent/blob/main/plugins/memory/honcho/README.md) and [Honcho integration guide](https://docs.honcho.dev/v3/guides/integrations/harry).
+See the [config reference](https://github.com/ctrts/harry/blob/main/plugins/memory/honcho/README.md) and [Honcho integration guide](https://docs.honcho.dev/v3/guides/integrations/harry).
 
 
 ---

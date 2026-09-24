@@ -366,7 +366,7 @@ echo "HINDSIGHT_API_KEY=your-key" >> ~/.harry/.env
 | `retain_assistant_prefix` | `Assistant` | 自动保留的对话记录中助手轮次前的标签 |
 | `recall_tags` | — | 召回时用于过滤的标签 |
 
-完整配置参考参见[插件 README](https://github.com/harry/harry-agent/blob/main/plugins/memory/hindsight/README.md)。
+完整配置参考参见[插件 README](https://github.com/ctrts/harry/blob/main/plugins/memory/hindsight/README.md)。
 
 ---
 
