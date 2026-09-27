@@ -196,7 +196,7 @@ def test_run_prompt_preserves_real_home_when_profile_home_available(
 
     monkeypatch.setenv("HOME", str(real_home))
     monkeypatch.setenv("HARRY_HOME", str(harry_home))
-    # Hermeticity: an ambient HARRY_REAL_HOME (exported by Harry' own
+    # Hermeticity: an ambient HARRY_REAL_HOME (exported by Harry's own
     # terminal contract on dev boxes) outranks HOME in the candidate ladder,
     # and an ambient TERMINAL_HOME_MODE would change the policy under test.
     monkeypatch.delenv("HARRY_REAL_HOME", raising=False)

@@ -455,7 +455,7 @@ harry config set memory.provider hindsight
 echo "HINDSIGHT_API_KEY=your-key" >> ~/.harry/.env
 ```
 
-The plugin lands in `~/.harry/plugins/hindsight/` (per profile home) and is enabled under `plugins.enabled` in `config.yaml`. `harry memory setup`, `harry memory status`, `harry plugins list` and the dashboard Memory settings all work with the catalog-installed plugin. In local embedded mode the plugin installs `hindsight-all` on first use through Harry' lazy-install path, which honours `security.allow_lazy_installs`.
+The plugin lands in `~/.harry/plugins/hindsight/` (per profile home) and is enabled under `plugins.enabled` in `config.yaml`. `harry memory setup`, `harry memory status`, `harry plugins list` and the dashboard Memory settings all work with the catalog-installed plugin. In local embedded mode the plugin installs `hindsight-all` on first use through Harry's lazy-install path, which honours `security.allow_lazy_installs`.
 
 **Local mode UI:** `hindsight-embed -p harry ui start`
 

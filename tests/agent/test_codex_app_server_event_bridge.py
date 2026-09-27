@@ -61,7 +61,7 @@ class TestCodexItemToToolName:
         )
 
     def test_harry_tools_mcp_server_emits_bare_tool_name(self):
-        """The harry-tools MCP server wraps Harry' own tools for codex;
+        """The harry-tools MCP server wraps Harry's own tools for codex;
         the inner dispatch subprocess can't fire native progress events,
         so the codex-level event IS the display event — shown without the
         mcp.harry-tools.* namespacing (from #26541 by @simpolism)."""

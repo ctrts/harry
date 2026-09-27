@@ -18,8 +18,8 @@ Not using OpenAI Codex? `harry setup --portal` configures a non-Codex backend wi
 - Run OpenAI agent turns against your **ChatGPT subscription** (no API key required) using the same auth flow Codex CLI uses.
 - Use **Codex's own toolset and sandbox** — `shell` for terminal/read/write/search, `apply_patch` for structured edits, `update_plan` for planning, all running inside seatbelt/landlock sandboxing.
 - **Native Codex plugins** — Linear, GitHub, Gmail, Calendar, Canva, etc. — installed via `codex plugin` are auto-migrated and active in your Harry session.
-- **Harry' richer tools come along** — web_search, web_extract, browser automation, vision, image generation, skills, and TTS work via an MCP callback. Codex calls back into Harry for tools it doesn't have built in.
-- **Memory and skill nudges keep working** — Codex's events are projected into Harry' message shape so the self-improvement loop sees a normal-looking transcript.
+- **Harry's richer tools come along** — web_search, web_extract, browser automation, vision, image generation, skills, and TTS work via an MCP callback. Codex calls back into Harry for tools it doesn't have built in.
+- **Memory and skill nudges keep working** — Codex's events are projected into Harry's message shape so the self-improvement loop sees a normal-looking transcript.
 - **Your Harry persona rides along** — the composed system prompt (SOUL.md, MEMORY.md/USER.md, per-channel `system_prompt` overrides) is sent to the codex thread once as developer instructions when the thread starts, and Codex's built-in personality is disabled so it cannot compete with yours.
 
 ## What tools the model actually has
@@ -32,7 +32,7 @@ These ship with `codex app-server` itself — no Harry involvement, no MCP, no p
 
 - **`shell`** — runs arbitrary shell commands inside the sandbox. This is how the model reads files (`cat`, `head`, `tail`), writes them (`echo > foo`, heredocs), searches them (`find`, `rg`, `grep`), navigates directories (`ls`, `cd`), runs builds, manages processes, and anything else you'd do in bash.
 - **`apply_patch`** — applies a structured multi-file diff in Codex's patch format. The model uses this for non-trivial code edits (adding a function, refactoring across files); shell heredocs are still available for one-off writes.
-- **`update_plan`** — codex's internal todo / plan tracker. Equivalent of Harry' `todo` tool, but managed entirely inside codex's runtime.
+- **`update_plan`** — codex's internal todo / plan tracker. Equivalent of Harry's `todo` tool, but managed entirely inside codex's runtime.
 - **`view_image`** — load a local image file into the conversation so the model can see it.
 - **`web_search`** — codex has its own built-in web search when configured. Harry also exposes `web_search` (Firecrawl-backed) via the callback below; the model picks whichever it prefers.
 
@@ -63,20 +63,20 @@ Harry registers itself as an MCP server so codex can call back for tools codex d
 - **`web_search`** / **`web_extract`** — Firecrawl-backed; tends to be cleaner than scraping for structured content.
 - **`browser_navigate` / `browser_click` / `browser_type` / `browser_press` / `browser_snapshot` / `browser_scroll` / `browser_back` / `browser_get_images` / `browser_console` / `browser_vision`** — full browser automation via Camofox or Browserbase.
 - **`vision_analyze`** — call a separate vision model to inspect an image (different from codex's `view_image` which loads it into the conversation).
-- **`image_generate`** — image generation through Harry' image_gen plugin chain.
-- **`skill_view` / `skills_list`** — read from Harry' skill library.
-- **`text_to_speech`** — TTS through Harry' configured provider.
+- **`image_generate`** — image generation through Harry's image_gen plugin chain.
+- **`skill_view` / `skills_list`** — read from Harry's skill library.
+- **`text_to_speech`** — TTS through Harry's configured provider.
 
-When the model wants one of these, codex spawns the `harry_tools_mcp_server` subprocess via stdio MCP, the call is dispatched through `model_tools.handle_function_call()` (same code path as Harry' default runtime), and the result is returned to codex like any other MCP response.
+When the model wants one of these, codex spawns the `harry_tools_mcp_server` subprocess via stdio MCP, the call is dispatched through `model_tools.handle_function_call()` (same code path as Harry's default runtime), and the result is returned to codex like any other MCP response.
 
 ### What's NOT available on this runtime
 
 These four Harry tools require the running AIAgent context (mid-loop state) to dispatch, and a stateless MCP callback can't drive them. Switch back to the default runtime (`/codex-runtime auto`) when you need any of them:
 
 - **`delegate_task`** — spawn subagents
-- **`memory`** — Harry' persistent memory store
+- **`memory`** — Harry's persistent memory store
 - **`session_search`** — cross-session search
-- **`todo`** — Harry' todo store (codex's `update_plan` is the in-runtime equivalent)
+- **`todo`** — Harry's todo store (codex's `update_plan` is the in-runtime equivalent)
 
 ## Workflow features (`/goal`, kanban, cron)
 
@@ -162,7 +162,7 @@ uses:
    ```bash
    codex login                  # writes tokens to ~/.codex/auth.json
    ```
-   Harry' own `harry auth add openai-codex` writes to `~/.harry/auth.json` — that's a separate session. **Run `codex login` separately** if you haven't.
+   Harry's own `harry auth add openai-codex` writes to `~/.harry/auth.json` — that's a separate session. **Run `codex login` separately** if you haven't.
 
    <a id="named-custom-providers"></a>**Or: a named custom provider.** A `providers.<name>` entry in Harry config can use this runtime when the **same name** is defined as a Codex provider. Harry config:
 
@@ -189,9 +189,9 @@ uses:
    wire_api = "responses"
    ```
 
-   Harry sends only `model` and `modelProvider = "my-gateway"` on `thread/start`; codex resolves `base_url` and reads the key from `env_key` in its own environment. **Harry never forwards the API key**, so `MY_GATEWAY_API_KEY` must be present in the process environment Harry runs in — `~/.harry/.env` is loaded at startup and provider credentials are inherited by the codex subprocess. Auxiliary calls (titles, compression, memory review) still use Harry' own `providers.my-gateway` entry.
+   Harry sends only `model` and `modelProvider = "my-gateway"` on `thread/start`; codex resolves `base_url` and reads the key from `env_key` in its own environment. **Harry never forwards the API key**, so `MY_GATEWAY_API_KEY` must be present in the process environment Harry runs in — `~/.harry/.env` is loaded at startup and provider credentials are inherited by the codex subprocess. Auxiliary calls (titles, compression, memory review) still use Harry's own `providers.my-gateway` entry.
 
-   Caveats: the name after `custom:` is the `providers:` config key and must match the `[model_providers.<name>]` table name exactly — if it does not exist on the codex side, codex reports an unknown provider rather than silently using the Harry endpoint. Anonymous `provider: custom` (a bare `base_url`) is not eligible: it has no stable name to hand to codex, so it stays on Harry' standard runtime.
+   Caveats: the name after `custom:` is the `providers:` config key and must match the `[model_providers.<name>]` table name exactly — if it does not exist on the codex side, codex reports an unknown provider rather than silently using the Harry endpoint. Anonymous `provider: custom` (a bare `base_url`) is not eligible: it has no stable name to hand to codex, so it stays on Harry's standard runtime.
 
 3. **(Optional) Install the Codex plugins you want.** When you enable the runtime, Harry auto-migrates whichever curated plugins you've already installed via Codex CLI:
    ```bash
@@ -213,7 +213,7 @@ That command:
 - Persists `model.openai_runtime: codex_app_server` to your config.yaml.
 - Migrates user MCP servers from `~/.harry/config.yaml` to `~/.codex/config.toml`.
 - **Discovers and migrates installed native Codex plugins** (Linear, GitHub, Gmail, Calendar, Canva, etc.) by querying Codex's `plugin/list` RPC.
-- **Registers Harry' own tools as an MCP server** so the codex subprocess can call back for tools codex doesn't ship with.
+- **Registers Harry's own tools as an MCP server** so the codex subprocess can call back for tools codex doesn't ship with.
 - **Writes `default_permissions = ":workspace"`** so the sandbox allows writes within the workspace without prompting for every operation.
 - Tells you what was migrated. Takes effect on the **next** session — the current cached agent keeps the prior runtime so prompt caches stay valid.
 
@@ -246,7 +246,7 @@ The value is a single executable path, not a shell command — no quoting or ext
 
 ## Self-improvement loop (memory + skill nudges)
 
-Harry' background self-improvement fires on counter thresholds:
+Harry's background self-improvement fires on counter thresholds:
 
 - Every 10 user prompts → a forked review agent looks at the conversation and decides whether anything should be saved to memory.
 - Every 10 tool iterations within a single turn → same idea but for skills (`skill_manage` writes).
@@ -263,13 +263,13 @@ How the wiring stays equivalent:
 | Skill trigger (`_iters_since_skill >= _skill_nudge_interval`) | computed after the loop | computed after the codex turn |
 | `_spawn_background_review(messages_snapshot=..., review_memory=..., review_skills=...)` | called when either trigger fires | called identically when either trigger fires |
 
-One detail: the review fork itself needs to call Harry' agent-loop tools (`memory`, `skill_manage`), which require Harry' own dispatch. So when the parent agent is on `codex_app_server`, the review fork is **downgraded to `codex_responses`** — same OAuth credentials, same `openai-codex` provider, but talks to OpenAI's Responses API directly so Harry owns the loop and the agent-loop tools work. This is invisible to the user.
+One detail: the review fork itself needs to call Harry's agent-loop tools (`memory`, `skill_manage`), which require Harry's own dispatch. So when the parent agent is on `codex_app_server`, the review fork is **downgraded to `codex_responses`** — same OAuth credentials, same `openai-codex` provider, but talks to OpenAI's Responses API directly so Harry owns the loop and the agent-loop tools work. This is invisible to the user.
 
 Net effect: enable the codex runtime and your memory + skill nudges keep firing exactly as they would otherwise.
 
 ## How approvals work
 
-Codex requests approval before executing commands or applying patches. These get translated into Harry' standard "Dangerous Command" prompt:
+Codex requests approval before executing commands or applying patches. These get translated into Harry's standard "Dangerous Command" prompt:
 
 ```
 ╭───────────────────────────────────────╮
@@ -295,10 +295,10 @@ For `apply_patch` (file edit) approvals, Harry shows a summary of what changed (
 
 Codex has three built-in permission profiles:
 - `:read-only` — no writes; every shell command requires approval
-- `:workspace` — writes within the current workspace allowed without prompts (Harry' default when you enable the runtime)
+- `:workspace` — writes within the current workspace allowed without prompts (Harry's default when you enable the runtime)
 - `:danger-no-sandbox` — no sandbox at all (don't use this unless you understand it)
 
-You can override the default in `~/.codex/config.toml` outside Harry' managed block:
+You can override the default in `~/.codex/config.toml` outside Harry's managed block:
 
 ```toml
 default_permissions = ":read-only"
@@ -308,7 +308,7 @@ default_permissions = ":read-only"
 
 ## Auxiliary tasks and ChatGPT subscription token cost
 
-When this runtime is on with the `openai-codex` provider, **auxiliary tasks (title generation, context compression, vision auto-detect, the background self-improvement review fork) also flow through your ChatGPT subscription by default**, because Harry' auxiliary client uses the main provider/model when no per-task override is set.
+When this runtime is on with the `openai-codex` provider, **auxiliary tasks (title generation, context compression, vision auto-detect, the background self-improvement review fork) also flow through your ChatGPT subscription by default**, because Harry's auxiliary client uses the main provider/model when no per-task override is set.
 
 This isn't specific to `codex_app_server` — it's true for the existing `codex_responses` path too — but it's more visible here because you're explicitly opting in for the subscription billing.
 
@@ -330,7 +330,7 @@ auxiliary:
     model: google/gemini-3-flash-preview
 ```
 
-The self-improvement review fork inherits the main runtime via `_current_main_runtime()` and Harry downgrades it from `codex_app_server` to `codex_responses` automatically (so the fork can actually call `memory` and `skill_manage` — Harry' own agent-loop tools). That fork still uses your subscription auth unless you've routed aux tasks elsewhere.
+The self-improvement review fork inherits the main runtime via `_current_main_runtime()` and Harry downgrades it from `codex_app_server` to `codex_responses` automatically (so the fork can actually call `memory` and `skill_manage` — Harry's own agent-loop tools). That fork still uses your subscription auth unless you've routed aux tasks elsewhere.
 
 ## Editing `~/.codex/config.toml` safely
 
@@ -355,7 +355,7 @@ Anything **outside** that block is yours. Re-running migration (via `/codex-runt
 
 Anything you add **inside** the managed block will get clobbered on the next migration. If you need a tweak that requires editing the managed block, file an issue and we'll add the knob.
 
-**Same-name servers.** If your own `[mcp_servers.<name>]` table (outside the block) uses the same name as a server in Harry' `mcp_servers`, your table wins: Harry skips its projection for that name instead of emitting a second `[mcp_servers.<name>]` header (which is invalid TOML and would stop codex from starting). The migration report lists such names under "Kept N user-owned MCP server(s)". To let Harry manage the server, delete your table and re-run the migration. The rendered file is parsed as TOML before it replaces `config.toml`; an unparsable result is reported and the existing file is left untouched.
+**Same-name servers.** If your own `[mcp_servers.<name>]` table (outside the block) uses the same name as a server in Harry's `mcp_servers`, your table wins: Harry skips its projection for that name instead of emitting a second `[mcp_servers.<name>]` header (which is invalid TOML and would stop codex from starting). The migration report lists such names under "Kept N user-owned MCP server(s)". To let Harry manage the server, delete your table and re-run the migration. The rendered file is parsed as TOML before it replaces `config.toml`; an unparsable result is reported and the existing file is left untouched.
 
 ### Running the migration from a script
 
@@ -394,7 +394,7 @@ This matches the boundary OpenClaw arrived at after some early experimentation: 
 
 ## MCP server migration
 
-Harry' `mcp_servers` config is auto-translated to the TOML format Codex expects. The migration runs every time you enable the runtime and is idempotent — re-runs replace the managed section but preserve any user-edited Codex config.
+Harry's `mcp_servers` config is auto-translated to the TOML format Codex expects. The migration runs every time you enable the runtime and is idempotent — re-runs replace the managed section but preserve any user-edited Codex config.
 
 What translates:
 
@@ -413,7 +413,7 @@ What's not migrated:
 
 Plugins installed via `codex plugin` (Linear, GitHub, Gmail, Calendar, Canva, etc.) are discovered through Codex's `plugin/list` RPC. For each plugin where `installed: true`, Harry writes a `[plugins."<name>@openai-curated"]` block enabling it in your Harry session.
 
-This means: when your friend says "I have Calendar and GitHub set up in my Codex CLI" and they enable Harry' codex runtime, Harry activates those automatically. No re-configuration needed.
+This means: when your friend says "I have Calendar and GitHub set up in my Codex CLI" and they enable Harry's codex runtime, Harry activates those automatically. No re-configuration needed.
 
 What's NOT migrated:
 - Plugins you haven't installed yet — install them in Codex first.
@@ -465,11 +465,11 @@ This runtime is **opt-in beta**. Working as of Harry Agent 2026.5 + Codex CLI 0.
 
 Known limitations:
 
-- **Harry auth and codex auth are separate sessions.** You need both `codex login` AND `harry auth add openai-codex` for the cleanest UX (the runtime uses codex's session for the LLM call). This is a deliberate design choice in Harry' `_import_codex_cli_tokens` — Harry won't share OAuth state with codex CLI to avoid clobbering each other on token refresh.
+- **Harry auth and codex auth are separate sessions.** You need both `codex login` AND `harry auth add openai-codex` for the cleanest UX (the runtime uses codex's session for the LLM call). This is a deliberate design choice in Harry's `_import_codex_cli_tokens` — Harry won't share OAuth state with codex CLI to avoid clobbering each other on token refresh.
 - **`delegate_task`, `memory`, `session_search`, `todo` are unavailable on this runtime.** They need the running AIAgent context which a stateless MCP callback can't provide. Use `/codex-runtime auto` when you need these.
 - **No inline patch preview in approval prompts when codex doesn't track the changeset.** Codex's `fileChange` approval params don't always carry the changeset. Harry caches the data from the corresponding `item/started` notification when possible, but if approval arrives before the item has streamed, the prompt falls back to whatever `reason` codex provides.
 - **`fallback_providers` fail over only on quota and rate-limit failures.** When a codex app-server turn fails with a billing / usage-limit / rate-limit error, Harry switches to the configured [fallback provider](./fallback-providers.md) and retries the same turn on it; auth failures (`codex login` expired), turn timeouts and unknown-model errors do not fail over on this runtime and surface as the turn's error instead.
-- **Prior Harry history is seeded only into a thread codex starts from scratch.** A codex thread that codex hands back via `thread/resume` already holds the conversation. When no resumable thread exists — the session ran on another provider before `/model` switched to openai-codex, codex could not resume the stored thread, or the running thread was retired — the new thread's `developerInstructions` carry Harry' system prompt followed by the session's prior turns (user and assistant text, tool names, tool-result previews; the most recent ~32K characters). When the composed prompt changes mid-session (for example `/personality` in the TUI or Desktop), the next turn retires the running thread and starts a new one carrying the updated prompt plus that same history seed.
+- **Prior Harry history is seeded only into a thread codex starts from scratch.** A codex thread that codex hands back via `thread/resume` already holds the conversation. When no resumable thread exists — the session ran on another provider before `/model` switched to openai-codex, codex could not resume the stored thread, or the running thread was retired — the new thread's `developerInstructions` carry Harry's system prompt followed by the session's prior turns (user and assistant text, tool names, tool-result previews; the most recent ~32K characters). When the composed prompt changes mid-session (for example `/personality` in the TUI or Desktop), the next turn retires the running thread and starts a new one carrying the updated prompt plus that same history seed.
 - **The codex thread itself does survive a restart.** After each committed turn Harry stores the codex thread id on the session row (`codex_thread_id` in the session's `model_config`, `harry sessions` / `state.db`). The next agent built for that same Harry session — a later `/api/sessions/{id}/chat` request, or the first turn after the API server or gateway restarts — issues `thread/resume` for the stored id before `turn/start`, so the model keeps its own memory of the earlier turns (that is why no history seed is sent on resume). When codex cannot hand the thread back (its rollout was deleted, `CODEX_HOME` changed, the previous app-server was killed while still writing it), Harry fails closed: it drops the stored id, starts a fresh thread and shows one line — `Codex thread could not be resumed; starting a new one.` — on the status rail of the surface you are on (CLI, TUI/Desktop, messaging gateway). A `/new` session never resumes an older thread.
 - **Sub-second cancellation isn't guaranteed.** Mid-stream interrupts (Ctrl+C while codex is responding) are sent via `turn/interrupt`, but if codex has already flushed the final message, you get the response anyway.
 
@@ -507,7 +507,7 @@ If you find a bug, [open an issue](https://github.com/ctrts/harry/issues) with t
         │   │  │    canva, ...)       │     │
         │   │  └─ harry-tools ───────┼─────────────────┐
         │   │       (callback to     │     │           │
-        │   │        Harry' richer  │     │           │
+        │   │        Harry's richer  │     │           │
         │   │        tools)          │     │           │
         │   └─────────────────────────┘     │           │
         └──────────────────────────────────┘           │

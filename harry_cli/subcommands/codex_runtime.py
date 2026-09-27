@@ -35,7 +35,7 @@ def build_codex_runtime_parser(subparsers) -> None:
         help="Manage the optional codex app-server runtime (migrate MCP config)",
         description="Noninteractive counterpart of the /codex-runtime slash command. Toggling the "
         "runtime itself stays in the chat command (`/codex-runtime on|off`); `migrate` "
-        "re-projects Harry' mcp_servers + installed codex plugins into the managed block of "
+        "re-projects Harry's mcp_servers + installed codex plugins into the managed block of "
         "~/.codex/config.toml for the selected profile.",
     )
     actions = parser.add_subparsers(dest="codex_runtime_action")

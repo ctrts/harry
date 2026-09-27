@@ -92,7 +92,7 @@ Values declared in portable MCP `env` are visible package data, not a secret
 storage mechanism. Do not place credentials in `mcp.json`.
 
 The current portable subset supports stdio and Streamable HTTP MCP entries.
-Portable `streamable-http` entries are routed through Harry' existing native
+Portable `streamable-http` entries are routed through Harry's existing native
 remote MCP client (the same runtime that powers URL-based `mcp_servers`
 config), with the v1 boundary rules enforced: the URL must be absolute
 http(s) with no user information or fragment, plain HTTP is accepted only
@@ -306,7 +306,7 @@ this Harry understands still loads with a warning.
 | `manifest_version` | int | Manifest **file-format** version. Absent = `1`. Current max: `2`. Independent from `api_version`. |
 | `api_version` | int | Runtime **plugin API generation** the plugin targets (ctx surface / hook signatures). Deliberately a separate axis from `manifest_version` — an `api_version: 1` plugin can use a v2 manifest. |
 | `requires_plugins` | list | Inter-plugin dependencies: `- id: other-plugin` with optional `version_range: ">=1.0,<2"`. **Advisory**: a missing dependency logs a clear warning but the plugin still loads — probe at runtime with `ctx.has_plugin("other-plugin")`. Load **order** honors these edges: when A requires B, B's `register()` runs before A's (topological sort, alphabetical tiebreak; cycles warn and fall back to alphabetical order). |
-| `python_dependencies` | list of str | PEP 508 requirements (e.g. `"requests>=2.0,<3"`). Installed into Harry' venv on `harry plugins install` / `enable` and **re-applied after every `harry update`** (see [Python dependencies](#python-dependencies)). A `pyproject.toml` beside `plugin.yaml` with `[project].dependencies` is the equivalent, preferred form. |
+| `python_dependencies` | list of str | PEP 508 requirements (e.g. `"requests>=2.0,<3"`). Installed into Harry's venv on `harry plugins install` / `enable` and **re-applied after every `harry update`** (see [Python dependencies](#python-dependencies)). A `pyproject.toml` beside `plugin.yaml` with `[project].dependencies` is the equivalent, preferred form. |
 | `python_runtime` | str | `external` — the plugin manages its own interpreter/venv (sidecar pattern); Harry installs nothing and leaves any `pyproject.toml` alone. |
 | `config_schema` | mapping | JSON-schema-ish description of keys under `plugins.entries.<id>.settings`: `api_url: {type: str, default: "", description: "...", required: false}`. Validated at load; mismatches log actionable warnings naming the key and expected type — never load failures. Types: `str`, `int`, `float`, `bool`, `list`, `dict` (plus JSON-schema aliases) and `secret`. Also drives the settings form in the Desktop Plugins tab — see [Settings form in the Desktop](#settings-form-in-the-desktop). |
 | `license` | str | SPDX-style license id (e.g. `MIT`). |
@@ -349,14 +349,14 @@ dependencies = [
 
 When both exist the `pyproject.toml` wins. What Harry does with them:
 
-- **Install / enable** — the declared packages are installed into Harry' venv with
-  `uv pip install` (pip fallback) under a **constraints file built from Harry' own pinned
+- **Install / enable** — the declared packages are installed into Harry's venv with
+  `uv pip install` (pip fallback) under a **constraints file built from Harry's own pinned
   dependencies**, so a plugin can never move a core package (httpx, pydantic, …) off the version
   Harry was tested with. Environment markers (`; sys_platform == "win32"`) are honoured.
 - **Conflict = refusal, never a silent drop** — before the plugin tree is moved into place, its
   dependencies are dry-run resolved together with every already-enabled plugin's. A candidate that
   cannot resolve is *not installed* and the error names the conflict; existing plugins are untouched.
-- **`harry update` re-applies them** — the update's `uv sync` rebuilds the venv from Harry' lock
+- **`harry update` re-applies them** — the update's `uv sync` rebuilds the venv from Harry's lock
   and strips anything else. Afterwards Harry walks every profile's enabled plugins and reinstalls
   their declared dependencies. If the union no longer resolves (a core pin moved), non-memory
   plugins are dropped one at a time until it does; each dropped plugin is **disabled with a loud

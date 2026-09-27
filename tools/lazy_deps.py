@@ -576,7 +576,7 @@ def _run_installer(cmd: list[str], **kw) -> subprocess.CompletedProcess:
 # extras, refreshed by ``harry update``) resolve under the checkout's ``[tool.uv]`` policy — the 14-day
 # ``exclude-newer`` quarantine and its per-package exceptions. ``plugin``: a plugin's declared
 # ``python_dependencies`` follow the PLUGIN's own policy (maintainer ruling: "plugins don't have to abide
-# by our 14 day rule; they can have their own security policy on that. Only Harry' dependencies themselves
+# by our 14 day rule; they can have their own security policy on that. Only Harry's dependencies themselves
 # have to"), so Harry's project config is not applied — a plugin floored on a release younger than 14 days
 # would otherwise be uninstallable through Harry while installing fine everywhere else.
 INSTALL_POLICIES = ("core", "plugin")
@@ -644,7 +644,7 @@ def _venv_pip_install(
     ``--target`` (constrained to core versions) when :data:`_LAZY_TARGET_ENV` is set. Independent of
     ``harry_cli.tools_config._pip_install`` (no CLI dependency).
 
-    *constraint_lines* pins the resolver (plugin installs pass Harry' own declared ranges so a plugin
+    *constraint_lines* pins the resolver (plugin installs pass Harry's own declared ranges so a plugin
     can never move a core package out of range); *dry_run* resolves without installing; *policy* is one
     of :data:`INSTALL_POLICIES` (see :func:`_uv_policy_args`)."""
     if not specs:

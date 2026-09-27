@@ -191,9 +191,9 @@ def is_router_timeout_shim(response: Any) -> bool:
 def _reasoning_config_for_model(
     model: str, reasoning_config: dict | None
 ) -> dict | None:
-    """Clamp Harry' extended effort set (``ultra``) to the OpenAI-compat wire vocabulary.
+    """Clamp Harry's extended effort set (``ultra``) to the OpenAI-compat wire vocabulary.
 
-    Harry' internal effort set extends the wire vocabulary with ``ultra`` (the /reasoning command documents
+    Harry's internal effort set extends the wire vocabulary with ``ultra`` (the /reasoning command documents
     none..xhigh|max|ultra). OpenAI- compatible wires — OpenRouter chief among them — accept exactly
     max|xhigh|high|medium|low|minimal|none and reject the extension with HTTP 400 (#89503). Clamp against
     the declared wire vocabulary via the shared policy in ``agent.reasoning_effort``; provider profiles with
@@ -238,7 +238,7 @@ def _build_gemini_thinking_config(
     if effort not in {"minimal", "low", "medium", "high", "xhigh", "max", "ultra"}:
         effort = "medium"
     # Gemini 3 Flash documents low/medium/high thinking levels; Gemini 3 Pro
-    # is stricter (low/high). Clamp Harry' wider effort set to what each
+    # is stricter (low/high). Clamp Harry's wider effort set to what each
     # family accepts so we never forward an undocumented level verbatim.
     if normalized_model.startswith("gemini-3"):
         if "flash" in normalized_model:

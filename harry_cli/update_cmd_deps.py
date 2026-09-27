@@ -587,7 +587,7 @@ def _refresh_active_memory_provider_dependencies() -> None:
 
 def _reapply_plugin_python_dependencies() -> None:
     """Re-install every enabled user plugin's declared Python deps after the venv was rebuilt (a
-    ``uv sync``/reinstall strips anything Harry' own lock does not know). Non-memory plugins whose
+    ``uv sync``/reinstall strips anything Harry's own lock does not know). Non-memory plugins whose
     deps no longer resolve are disabled loudly, memory providers last. Never raises."""
     from harry_cli.plugin_python_deps import reapply_all
     from harry_cli.update_cmd import _m

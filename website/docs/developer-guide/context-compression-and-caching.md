@@ -397,7 +397,7 @@ wasting a small window, which a 900K window doesn't need.
 
 Codex app-server sessions (`api_mode: codex_app_server` — the codex CLI/agent
 runtime) are different from every other route: the codex agent owns the backing
-thread context, so Harry' auxiliary summarizer cannot shrink it — rewriting the
+thread context, so Harry's auxiliary summarizer cannot shrink it — rewriting the
 local transcript mirror leaves the real thread growing unbounded until a hard
 context reset. For this runtime, compaction goes through the app-server's own
 mechanism instead:
@@ -407,13 +407,13 @@ mechanism instead:
 - Automatic compaction is controlled by `compression.codex_app_server_auto`:
   the default `native` lets the app-server decide when to compact and Harry
   records the resulting compaction events (compression counters, session
-  events). Set `harry` to let Harry' compression threshold initiate
+  events). Set `harry` to let Harry's compression threshold initiate
   app-server compaction, or `off` to disable Harry-initiated automatic
   compaction entirely (codex may still compact natively).
 
-Harry' local transcript is never rewritten on this runtime — state.db records
+Harry's local transcript is never rewritten on this runtime — state.db records
 the compaction boundary while the visible transcript stays intact. All other
-routes (including Codex OAuth chat sessions) keep Harry' summary compressor.
+routes (including Codex OAuth chat sessions) keep Harry's summary compressor.
 
 ### Native Responses compaction (gpt-5.6 and Astra on supported routes)
 

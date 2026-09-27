@@ -85,7 +85,7 @@ def test_occupancy_confirmed_skips_gate_one():
         ram_available_bytes=64 * gib,
     )
 
-    # Harry' threshold (e.g. 80% of window) can sit BELOW the ladder's 85%
+    # Harry's threshold (e.g. 80% of window) can sit BELOW the ladder's 85%
     # occupancy gate: 78K of a 96K window is 81%.
     kwargs = dict(
         current_window=98304,

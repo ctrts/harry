@@ -121,7 +121,7 @@ class CodexAppServerClient:
             is_dispatcher_owned_worker_context,
         )
 
-        # Native shell children remain unowned. Only Harry' managed MCP tool
+        # Native shell children remain unowned. Only Harry's managed MCP tool
         # endpoint acts for this worker; grant it scope via its existing per-server
         # environment (the entry the runtime migration registers), never by granting
         # the whole executor process ownership.

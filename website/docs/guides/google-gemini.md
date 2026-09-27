@@ -84,7 +84,7 @@ happens automatically; no MCP server or provider configuration change is needed.
 :::note Gemini 3 thought signatures
 For Gemini 3 tool use, Harry preserves the `thoughtSignature` values attached to function-call parts and replays them on the next tool turn. That covers the validation-critical path for multi-step agent workflows.
 
-Gemini 3 may also attach thought signatures to other response parts. Harry' native adapter is optimized for agent tool loops today, so it does not yet replay every non-tool-call signature with full part-level fidelity.
+Gemini 3 may also attach thought signatures to other response parts. Harry's native adapter is optimized for agent tool loops today, so it does not yet replay every non-tool-call signature with full part-level fidelity.
 :::
 
 ### Prefer the Native Endpoint
@@ -140,7 +140,7 @@ to `~/.harry/.env` (or set `base_url` on the provider) once and restart.
 
 ## Available Models
 
-The `harry model` picker shows Gemini models maintained in Harry' provider registry. Common choices include:
+The `harry model` picker shows Gemini models maintained in Harry's provider registry. Common choices include:
 
 | Model | ID | Notes |
 |-------|----|-------|

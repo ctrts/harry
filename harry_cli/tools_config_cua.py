@@ -136,7 +136,7 @@ _CUA_DRIVER_CONTRACT_CACHE: dict = {}
 
 
 def _cua_driver_contract_status(binary: Optional[str] = None) -> dict:
-    """Inspect whether an installed driver supports Harry' runtime contract (30s cache keyed on the
+    """Inspect whether an installed driver supports Harry's runtime contract (30s cache keyed on the
     binary's path/mtime/size fingerprint)."""
     from tools.computer_use.cua_backend_driver import cua_driver_runtime_contract_status
 
@@ -358,8 +358,8 @@ def install_cua_driver(
             )
         return _run_cua_driver_installer(label="Installing")
 
-    # A driver failing Harry' runtime contract (version floor, missing manifest verbs) is repaired
-    # regardless of mode. Harry' minimum requirement IS the confirmation an upgrade is needed, so
+    # A driver failing Harry's runtime contract (version floor, missing manifest verbs) is repaired
+    # regardless of mode. Harry's minimum requirement IS the confirmation an upgrade is needed, so
     # this path must not defer to the driver's `check-update` verb — a cached/indeterminate "no
     # update" answer would pin users on an unusable driver forever.
     contract = _cua_driver_contract_status(binary) if binary else None

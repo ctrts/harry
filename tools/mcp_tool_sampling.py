@@ -397,7 +397,7 @@ def _format_elicitation_schema_summary(schema: dict, server_name: str) -> str:
 
 
 class ElicitationHandler:
-    """``elicitation_callback`` for one MCP server. Form-mode routes through Harry' approval system
+    """``elicitation_callback`` for one MCP server. Form-mode routes through Harry's approval system
     (CLI, TUI, Telegram, ...); URL-mode is declined. Fail-closed: any timeout, exception or unexpected
     state returns decline/cancel, never a silent accept."""
 

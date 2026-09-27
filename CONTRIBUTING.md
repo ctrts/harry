@@ -143,7 +143,7 @@ scripts/run_tests.sh
 
 ### Manual clone fallback
 
-Use this only if you intentionally do not want Harry' managed install layout
+Use this only if you intentionally do not want Harry's managed install layout
 (for example, a throwaway clone inside a container or CI job). If you install
 this way, make sure you run the `harry` entrypoint from this venv; running the
 system `python3 -m harry_cli.main` can pick up unrelated system Python

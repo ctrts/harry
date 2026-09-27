@@ -1,4 +1,4 @@
-"""Python dependencies declared by user plugins: read, resolve against Harry' own ranges, install,
+"""Python dependencies declared by user plugins: read, resolve against Harry's own ranges, install,
 and re-apply after ``harry update`` rebuilds the venv.
 
 A plugin declares deps in its ``pyproject.toml`` (``[project].dependencies``) or, without one, in
@@ -7,7 +7,7 @@ external`` in the manifest opts a plugin out: it manages its own interpreter (si
 is never handed to the resolver.
 
 Contract (agreed with the Mnemosyne team, Sep 2026): the union of every enabled plugin's declarations
-is resolved together with Harry' declared ranges; a candidate that has no solution is refused without
+is resolved together with Harry's declared ranges; a candidate that has no solution is refused without
 touching the live venv or disabling anything already installed. After an update, the union is
 re-applied; if core moved and the union no longer resolves, non-memory plugins are dropped first and
 disabled with a loud warning, because a Harry that boots without memory reads as data loss.
@@ -180,7 +180,7 @@ def unsupported_specs(specs: Iterable[str]) -> list[str]:
 
 
 def core_constraints(project_root: Path) -> list[str]:
-    """Harry' own declared ranges (``[project].dependencies`` + every extra), as constraint lines.
+    """Harry's own declared ranges (``[project].dependencies`` + every extra), as constraint lines.
     Plugins resolve inside these, so they can move transitives but never a core package out of range.
     """
     document = tomllib.loads(

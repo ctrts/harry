@@ -5597,7 +5597,7 @@ async function runEnsureRuntime(backend: any, assertStillOwned: () => void): Pro
     throw new Error(missingInstallPartMessage(`Harry source files are missing or incomplete at ${ACTIVE_HARRY_ROOT}`))
   }
 
-  // On Windows, preflight Git Bash. Harry' terminal tool calls bash.exe
+  // On Windows, preflight Git Bash. Harry's terminal tool calls bash.exe
   // directly (tools/environments/local.py); without it the agent can't run
   // terminal commands. install.ps1's Stage-Git puts PortableGit at
   // %LOCALAPPDATA%\harry\git\, which findGitBash() picks up, so for any
@@ -10825,7 +10825,7 @@ async function bootstrapSshConnectionInner(profile, sshConfig, reuseToken, sourc
           metadata.registryConnectionId ||
           (typeof source === 'string' && source.startsWith('registry:') ? source.slice('registry:'.length) : ''),
         // Never infer primary ownership from a non-composite scope key: legacy
-        // per-profile pools also use bare keys. Only startHarry' explicit call
+        // per-profile pools also use bare keys. Only startHarry's explicit call
         // site may label a registry-qualified SSH scope as the primary backend.
         primaryRegistryScope: metadata.primaryRegistryScope === true
       })

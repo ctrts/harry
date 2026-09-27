@@ -404,7 +404,7 @@ class TestSaveAndLoadRoundtrip:
 class TestLoadEnvInlineComments:
     def test_unquoted_hash_is_a_comment_quoted_hash_is_data(self, tmp_path):
         """load_env is the one dotenv reader (agent.secret_scope.load_env_file): an unquoted ` #...` tail
-        is a comment, a quoted value keeps its hash. Harry' own writer (_quote_env_value) always quotes
+        is a comment, a quoted value keeps its hash. Harry's own writer (_quote_env_value) always quotes
         values containing `#`, so a saved secret round-trips."""
         from harry_cli.config import invalidate_env_cache
 

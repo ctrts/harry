@@ -3,7 +3,7 @@
 
 The SDK's ``OAuthClientProvider`` does discovery, client identification, PKCE, exchange and
 refresh; this module supplies ``HarryTokenStorage`` (on-disk persistence), the localhost callback
-listener and ``build_oauth_auth()`` (legacy entry point). client_id is Harry' Client ID Metadata
+listener and ``build_oauth_auth()`` (legacy entry point). client_id is Harry's Client ID Metadata
 Document URL (CIMD) when the server supports it, else RFC 7591 DCR. ``mcp_servers.<name>.oauth`` keys
 (all optional): client_id, client_secret, scope, redirect_port, redirect_uri (proxy callback),
 redirect_host, client_name, client_metadata_url, cimd, user_agent, timeout."""
@@ -985,7 +985,7 @@ def _callback_outcome(result: dict, cimd_url: str | None):
         hint = (
             (
                 " If the browser showed an invalid-client error instead of an approval prompt, the authorization "
-                f"server rejected Harry' Client ID Metadata Document ({cimd_url}); set ``cimd: false`` under that "
+                f"server rejected Harry's Client ID Metadata Document ({cimd_url}); set ``cimd: false`` under that "
                 "server's ``oauth:`` block in config.yaml to authorize via dynamic client registration instead."
             )
             if cimd_url
@@ -1496,7 +1496,7 @@ def build_oauth_auth(
             "HarryOAuthClientProvider",
             (HarryProviderMixin, _sdk_class("OAuthClientProvider")),
             {
-                "__doc__": "SDK provider plus Harry' token-endpoint fixes (see ``HarryProviderMixin``).",
+                "__doc__": "SDK provider plus Harry's token-endpoint fixes (see ``HarryProviderMixin``).",
                 "__module__": __name__,
                 "_harry_logger": logger,
             },

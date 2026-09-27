@@ -41,7 +41,7 @@ Gmail, Calendar, Drive, Contacts, Sheets, and Docs — through Harry-managed OAu
 ## Scripts
 
 - `scripts/setup.py` — OAuth2 setup (run once to authorize)
-- `scripts/google_api.py` — compatibility wrapper CLI. It prefers `gws` for operations when available, while preserving Harry' existing JSON output contract.
+- `scripts/google_api.py` — compatibility wrapper CLI. It prefers `gws` for operations when available, while preserving Harry's existing JSON output contract.
 
 ## First-Time Setup
 

@@ -1,4 +1,4 @@
-"""Integration coverage for Harry' pinned Mem0 OSS boundary."""
+"""Integration coverage for Harry's pinned Mem0 OSS boundary."""
 
 import copy
 import os

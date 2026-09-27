@@ -507,7 +507,7 @@ class TestRequireConfirmedUpdate:
         reason="automatic Windows updates must not launch an interactive repair",
     )
     def test_incompatible_driver_repairs_on_posix_despite_indeterminate_check(self):
-        """Harry' own version floor is the confirmation. When the installed
+        """Harry's own version floor is the confirmation. When the installed
         driver fails the runtime contract, the `harry update` refresh must
         repair it even though ``check-update`` can't confirm a newer release
         (its ~20h cache routinely lags a same-day floor bump — the 0.19.3

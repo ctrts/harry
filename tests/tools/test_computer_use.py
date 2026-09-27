@@ -1112,7 +1112,7 @@ class TestContractAutoRepair:
     """An installed-but-incompatible driver is repaired automatically, once.
 
     The 0.20 runtime-contract gate fails closed; when the failure is an old
-    installed driver (a state Harry' own version-floor bump created),
+    installed driver (a state Harry's own version-floor bump created),
     start() runs the standard install/repair path once instead of failing
     every computer_use call until the user runs the CLI by hand.
     """

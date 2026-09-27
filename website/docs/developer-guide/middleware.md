@@ -12,7 +12,7 @@ itself.
 
 This contract is intentionally backend-neutral. A plugin can use it for local
 policy, request shaping, tracing, adaptive routing, cache control, sandbox
-selection, or handoff to runtimes such as NeMo Relay without changing Harry'
+selection, or handoff to runtimes such as NeMo Relay without changing Harry's
 planner, model provider adapters, tool registry, memory, or CLI UX.
 
 With middleware enabled, plugins can:

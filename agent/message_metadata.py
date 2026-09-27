@@ -5,7 +5,7 @@ from __future__ import annotations
 from time import time as wall_time
 from typing import Any, MutableMapping, Optional, TypeVar
 
-# These fields describe Harry' durable record and timeline display, not
+# These fields describe Harry's durable record and timeline display, not
 # provider-visible message content. The request builder strips them from every
 # outgoing copy and the token estimator ignores them: one set, so an estimate
 # never prices bytes the provider never receives (an edit's inline_diff in

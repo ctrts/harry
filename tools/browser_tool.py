@@ -730,7 +730,7 @@ def _url_policy_error(url: str, *, auto_local: bool = False) -> Optional[dict]:
     Credential-NAMED query params (``?token=``, ``?signature=``) are deliberately NOT a floor:
     magic links, OAuth callbacks and signed CDN assets are how the agent signs in and browses, and
     a cloud browser already sees every cookie and typed password of the session — refusing the
-    URL protects nothing. Harry' own secrets leaking into a URL are caught by ``_secret_url_error``.
+    URL protects nothing. Harry's own secrets leaking into a URL are caught by ``_secret_url_error``.
     """
     local = _cloud._is_local_backend()
     # Always-blocked floor: cloud metadata / IMDS endpoints are denied regardless of backend, hybrid

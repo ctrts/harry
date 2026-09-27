@@ -6,7 +6,7 @@ description: "How the ACP adapter works: lifecycle, sessions, event bridge, appr
 
 # ACP Internals
 
-The ACP adapter wraps Harry' synchronous `AIAgent` in an async JSON-RPC stdio server.
+The ACP adapter wraps Harry's synchronous `AIAgent` in an async JSON-RPC stdio server.
 
 Key implementation files:
 
@@ -157,12 +157,12 @@ repair is session rotation, not another row.
 
 ACP does not implement its own auth store.
 
-Instead it reuses Harry' runtime resolver:
+Instead it reuses Harry's runtime resolver:
 
 - `acp_adapter/auth.py`
 - `harry_cli/runtime_provider.py`
 
-So ACP advertises and uses the currently configured Harry provider/credentials. It also always advertises a terminal setup auth method (`harry-setup`, args `--setup`) so first-run ACP clients can open Harry' interactive model/provider configuration before starting a normal ACP session.
+So ACP advertises and uses the currently configured Harry provider/credentials. It also always advertises a terminal setup auth method (`harry-setup`, args `--setup`) so first-run ACP clients can open Harry's interactive model/provider configuration before starting a normal ACP session.
 
 ## Working directory binding
 

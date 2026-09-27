@@ -253,7 +253,7 @@ def _manifest_contract_reason(manifest: Optional[Dict[str, Any]]) -> str:
 
 
 def cua_driver_runtime_contract_status(binary: Optional[str] = None) -> Dict[str, Any]:
-    """Report whether a local driver can host Harry' 0.20 integration."""
+    """Report whether a local driver can host Harry's 0.20 integration."""
     resolved = binary or resolve_cua_driver_cmd()
     version: Optional[str] = None
     reason = "cua-driver is not installed"

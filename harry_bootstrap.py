@@ -516,7 +516,7 @@ def activate_durable_lazy_target() -> None:
 def export_scratch_tmp_env() -> None:
     """Point ``TMPDIR``/``TMP``/``TEMP`` at ``HARRY_HOME/cache/scratch`` unless the user set them.
 
-    System temp is tmpfs on most Linux hosts and containers; Harry' browser profiles, PTY
+    System temp is tmpfs on most Linux hosts and containers; Harry's browser profiles, PTY
     probes and every ``tempfile`` default a child script makes would eat RAM there. Runs at
     import so every entry point and every child they spawn inherits it; ``harry_cli.main``
     re-runs it after ``--profile`` re-homes the process. Never raises.

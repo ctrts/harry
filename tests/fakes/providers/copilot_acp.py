@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fake ACP agent executable standing in for ``copilot --acp --stdio`` (provider ``copilot-acp``).
 
-Harry' ``copilot-acp`` provider spawns an external agent process per model call and speaks the
+Harry's ``copilot-acp`` provider spawns an external agent process per model call and speaks the
 Agent Client Protocol to it: JSON-RPC 2.0, one JSON object per line over stdio
 (https://agentclientprotocol.com/protocol/overview). This module is that process. It
 
@@ -142,7 +142,7 @@ class AcpFake:
         self.launcher.chmod(0o755)
 
     def env(self) -> dict[str, str]:
-        """Env vars that point Harry' copilot-acp client at this fake."""
+        """Env vars that point Harry's copilot-acp client at this fake."""
         return {
             "HARRY_COPILOT_ACP_COMMAND": str(self.launcher),
             "HARRY_COPILOT_ACP_ARGS": f"--acp --stdio --state {self.state_dir}",
@@ -167,7 +167,7 @@ class AcpFake:
         ]
 
     def main_prompts(self) -> list[dict[str, Any]]:
-        """Main-turn ``session/prompt`` records (those carrying Harry' tool bridge)."""
+        """Main-turn ``session/prompt`` records (those carrying Harry's tool bridge)."""
         return [r for r in self.inbound("session/prompt") if r.get("main")]
 
     def aux_prompts(self) -> list[dict[str, Any]]:

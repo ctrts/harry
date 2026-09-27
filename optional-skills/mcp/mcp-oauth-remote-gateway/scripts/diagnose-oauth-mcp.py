@@ -32,7 +32,7 @@ UA = "python-httpx/0.27"  # CF blocks default urllib UA on many providers
 
 
 def _harry_home():
-    # Prefer Harry' own resolver (profile-safe); fall back to env then ~/.harry.
+    # Prefer Harry's own resolver (profile-safe); fall back to env then ~/.harry.
     try:
         from harry_constants import get_harry_home
 

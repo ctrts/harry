@@ -200,7 +200,7 @@ class HarryProviderMixin:
         installed on the context here and the SDK is handed an empty 204: ``handle_auth_metadata_response``
         reads that as "stop trying", leaving the installed document in place. ``auth_server_url`` is left
         untouched, so the SEP-2352 credential binding still uses the advertised identifier (stable across
-        runs), while the RFC 9207 ``iss`` check and Harry' refresh-token binding use the document's issuer.
+        runs), while the RFC 9207 ``iss`` check and Harry's refresh-token binding use the document's issuer.
         Every other response goes back to the SDK unchanged, including its issuer check.
         """
         # This compatibility shim is only for authorization-server metadata
@@ -647,7 +647,7 @@ def google_offline_access_params(context: Any) -> dict[str, str]:
 
 def bind_issuer_from_context(context: Any) -> None:
     """Record the discovered issuer so the next ``storage.set_tokens`` (exchange or refresh) carries
-    it. No-op when metadata is not discovered yet or storage is not Harry'."""
+    it. No-op when metadata is not discovered yet or storage is not Harry's."""
     from tools.mcp_oauth import HarryTokenStorage
 
     storage = getattr(context, "storage", None)

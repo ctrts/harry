@@ -254,7 +254,7 @@ def _hash_file(path: Path) -> Optional[str]:
 
 def _load_ledger(store: Path, dir_hash: str) -> Dict[str, Dict]:
     """Agent-write ledger ``{abs_path: {"sha256", "ts"}}``: hash of every file the last
-    ``write_file``/``patch`` produced, so restores can tell Harry' writes from later user edits.
+    ``write_file``/``patch`` produced, so restores can tell Harry's writes from later user edits.
     """
     return _read_json_dict(_ledger_path(store, dir_hash)) or {}
 
@@ -1053,7 +1053,7 @@ class CheckpointManager:
         safe: bool = False,
     ) -> Dict:
         """Restore files to a checkpoint state.  ``safe=True`` (full-directory only) leaves files
-        the user hand-edited after Harry' last write untouched (agent-write ledger); the result
+        the user hand-edited after Harry's last write untouched (agent-write ledger); the result
         then gains ``skipped_user_edits``, ``skipped_oversize`` (size cap kept them out of every
         checkpoint) and, only when a delete failed, ``failed_deletes``."""
         p, err = _locate(working_dir, commit_hash, file_path)

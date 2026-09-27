@@ -152,7 +152,7 @@ harry chat --quiet -q "Return only JSON"
 harry chat -q "Inspect this repository" --format stream-json
 harry chat --worktree -q "Review this repo and open a PR"
 harry chat --ignore-user-config --ignore-rules -q "Repro without my personal setup"
-harry chat --safe-mode -q "Is this bug mine or Harry'?"
+harry chat --safe-mode -q "Is this bug mine or Harry's?"
 ```
 
 ### `--format stream-json` — structured JSONL output
@@ -615,7 +615,7 @@ Common flags for migration subcommands:
 harry codex-runtime migrate [--dry-run] [--json]
 ```
 
-Runs the `~/.codex/config.toml` migration that `/codex-runtime codex_app_server` triggers, without a chat session: Harry' `mcp_servers` (plus installed codex plugins and the `default_permissions` default) are projected into the managed block for the selected profile (`harry -p <name> codex-runtime migrate`). User text outside the block is kept verbatim; a user-owned `[mcp_servers.<name>]` with the same name as a Harry server is preserved and the Harry projection for that name skipped (reported as `preserved_user_servers`). The result is validated as TOML before an atomic write; exit code is 1 when the report contains errors.
+Runs the `~/.codex/config.toml` migration that `/codex-runtime codex_app_server` triggers, without a chat session: Harry's `mcp_servers` (plus installed codex plugins and the `default_permissions` default) are projected into the managed block for the selected profile (`harry -p <name> codex-runtime migrate`). User text outside the block is kept verbatim; a user-owned `[mcp_servers.<name>]` with the same name as a Harry server is preserved and the Harry projection for that name skipped (reported as `preserved_user_servers`). The result is validated as TOML before an atomic write; exit code is 1 when the report contains errors.
 
 | Flag | Description |
 |------|-------------|
@@ -1515,7 +1515,7 @@ harry moa configure [name]
 harry moa delete <name>
 ```
 
-`harry moa configure` reuses Harry' provider → model picker for each reference model and the aggregator. A preset is an execution-mode configuration, not a primary model or provider.
+`harry moa configure` reuses Harry's provider → model picker for each reference model and the aggregator. A preset is an execution-mode configuration, not a primary model or provider.
 
 ## `harry fallback`
 

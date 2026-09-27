@@ -826,7 +826,7 @@ def test_codex_app_server_opt_in_routes_only_named_custom_providers(monkeypatch)
     ) == ("custom", "custom:my-gateway", "codex_app_server")
     assert (
         resolved["api_key"] == "test-key"
-    )  # Harry' own aux/fallback client keeps the credential
+    )  # Harry's own aux/fallback client keeps the credential
 
     anonymous = rp.resolve_runtime_provider(
         requested="custom",

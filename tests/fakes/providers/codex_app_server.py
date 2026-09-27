@@ -475,7 +475,7 @@ class FakeAppServer:
                 self._pending_cv.notify_all()
 
     def server_request(self, method: str, params: dict, timeout: float = 60.0) -> dict:
-        """Issue a server-initiated request and block for Harry' reply."""
+        """Issue a server-initiated request and block for Harry's reply."""
         with self._pending_cv:
             self._next_server_id += 1
             rid = self._next_server_id
@@ -1079,7 +1079,7 @@ def run_codex_scenario(
         "openai_runtime": "codex_app_server",
         "codex_bin": str(fake.bin),
     }
-    # The app-server owns auth; the key only satisfies Harry' provider resolution and never leaves.
+    # The app-server owns auth; the key only satisfies Harry's provider resolution and never leaves.
     home = make_home(
         root,
         model,

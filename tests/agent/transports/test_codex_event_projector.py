@@ -372,7 +372,7 @@ class TestHelpers:
 
 class TestRoleAlternationInvariant:
     """The project must never emit two assistant messages back-to-back from
-    one item — that breaks Harry' message alternation invariant."""
+    one item — that breaks Harry's message alternation invariant."""
 
     @pytest.mark.parametrize(
         "item",

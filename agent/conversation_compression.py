@@ -5348,7 +5348,7 @@ def _compress_context_via_codex_app_server(
 ) -> Tuple[list, str]:
     """Route compaction to Codex app-server for Codex-owned threads.
     Rewriting the local transcript would not shrink the Codex thread, so Codex compacts its own thread and
-    Harry' transcript is left unchanged."""
+    Harry's transcript is left unchanged."""
     _sid = getattr(agent, "session_id", None) or "none"
     _tokens = f"{approx_tokens:,}" if approx_tokens else "unknown"
     auto_mode = str(

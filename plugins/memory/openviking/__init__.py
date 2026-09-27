@@ -2760,7 +2760,7 @@ class OpenVikingMemoryProvider(MemoryProvider):
         user_content: str,
         assistant_content: str,
     ) -> List[Dict[str, Any]]:
-        """Slice the completed turn out of Harry' full canonical transcript: the last
+        """Slice the completed turn out of Harry's full canonical transcript: the last
         assistant message matching assistant_content (else the last assistant message,
         else the transcript end) back to the matching (else nearest) user message."""
         if not messages:

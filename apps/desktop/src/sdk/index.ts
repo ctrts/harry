@@ -1979,7 +1979,7 @@ export type { DisplayLease, DisplayObserveResult, DisplayStatus, DisplayThumbnai
 /** THE compact-number formatter — every user-facing count/token figure goes
  *  through here (1230 → "1.2k", 1_500_000 → "1.5M"). Don't hand-roll `/1000`. */
 export { compactNumber } from '@harry/shared'
-/** Harry' reasoning levels, so a plugin surfacing a thinking depth uses the
+/** Harry's reasoning levels, so a plugin surfacing a thinking depth uses the
  *  same scale as the rest of the app (labels: `reasoningEffortLabel`). */
 export {
   DEFAULT_REASONING_EFFORT,

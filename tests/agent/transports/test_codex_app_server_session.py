@@ -205,7 +205,7 @@ class TestLifecycle:
         assert len(method_calls) == 1
 
     def test_thread_start_carries_harry_prompt_and_disables_codex_personality(self):
-        """thread/start carries cwd, Harry' composed prompt as developerInstructions and
+        """thread/start carries cwd, Harry's composed prompt as developerInstructions and
         personality "none" (#74712, #72104, #26035). We intentionally do NOT pass `permissions`
         (experimentalApi-gated + requires a matching config.toml [permissions] table).
         """

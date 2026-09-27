@@ -80,7 +80,7 @@ class Scenario:
 
 # Each fault precedes a good answer: a retryable fault must be retried into it, a terminal one must not.
 SCENARIOS: dict[str, Scenario] = {
-    # botocore's own retries are off (documented AWS_MAX_ATTEMPTS) so the 429 reaches Harry' loop.
+    # botocore's own retries are off (documented AWS_MAX_ATTEMPTS) so the 429 reaches Harry's loop.
     "throttle_http": Scenario(
         (
             HttpError(

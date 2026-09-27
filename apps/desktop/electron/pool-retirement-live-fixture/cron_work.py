@@ -1,4 +1,4 @@
-"""A local-only script actually dispatched by Harry' no-agent cron scheduler."""
+"""A local-only script actually dispatched by Harry's no-agent cron scheduler."""
 
 import json
 import os

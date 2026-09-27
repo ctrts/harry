@@ -3860,7 +3860,7 @@ function Install-BrowserUseCli {
     }
     $managedBin = Join-Path $HarryHome "bin"
     $managedBu = Join-Path $managedBin "browser-use.exe"
-    # MANAGED-FIRST: only Harry' managed copy short-circuits. A browser-use
+    # MANAGED-FIRST: only Harry's managed copy short-circuits. A browser-use
     # on the user's PATH is a side install -- resolution prefers the managed
     # copy, so it must be provisioned regardless.
     if (Test-Path $managedBu) {
@@ -3872,7 +3872,7 @@ function Install-BrowserUseCli {
     $prevEAP = $ErrorActionPreference
     $ErrorActionPreference = "Continue"
     try {
-        # UV_TOOL_BIN_DIR keeps the binary inside Harry' managed bin dir,
+        # UV_TOOL_BIN_DIR keeps the binary inside Harry's managed bin dir,
         # where the browser tool resolves it -- no reliance on the user PATH.
         $env:UV_TOOL_BIN_DIR = $managedBin
         $env:UV_NO_CONFIG = "1"

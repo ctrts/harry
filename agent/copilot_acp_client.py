@@ -256,7 +256,7 @@ def _format_messages_as_prompt(
 ) -> str:
     # Deliberately no "requested model" line: the model is applied for real via ACP session/set_model;
     # a prompt-text mention makes a substituted backend model FALSELY self-identify as the requested
-    # one. Copilot has no tools of its own that collide with Harry', so forward the whole toolset.
+    # one. Copilot has no tools of its own that collide with Harry's, so forward the whole toolset.
     sections: list[str] = [
         *_PROMPT_PREAMBLE,
         *_render_tool_bridge_sections(tools, tool_choice),

@@ -37,7 +37,7 @@ _PLAN_STATUS = {
 
 
 def _build_plan_update_from_todo_result(result: Any) -> AgentPlanUpdate | None:
-    """Translate Harry' todo tool result into ACP's native plan update.
+    """Translate Harry's todo tool result into ACP's native plan update.
 
     Zed renders ``sessionUpdate: plan`` as its first-class task panel, so the
     todo state is exposed natively rather than only as a tool-call transcript."""

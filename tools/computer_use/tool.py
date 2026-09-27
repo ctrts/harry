@@ -1355,7 +1355,7 @@ def _write_cache_file(
 
 
 def _persist_capture_image(cap: CaptureResult) -> Optional[str]:
-    """Copy of the capture in Harry' media cache so attachment surfaces can deliver it (None without an image)."""
+    """Copy of the capture in Harry's media cache so attachment surfaces can deliver it (None without an image)."""
     return (
         _write_cache_file(
             "screenshot persistence",

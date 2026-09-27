@@ -169,7 +169,7 @@ model:
   #       CF-Access-Client-Secret: "${CF_ACCESS_SECRET}"
   #       X-Client-Name: "harry-agent"
   #
-  # session_affinity_header: NAME of a header that carries Harry' conversation
+  # session_affinity_header: NAME of a header that carries Harry's conversation
   # id on every request to that provider (all api_modes + auxiliary calls). Off
   # unless set. For session-aware proxies that otherwise treat each agent-loop
   # request as a new conversation and replay the whole history upstream.
@@ -683,7 +683,7 @@ compression:
   # Set null to restore ratio-only behavior.
   threshold_tokens: 256000
 
-  # Existing Codex gpt-5.5 behavior: raise Harry' compaction trigger to 85%
+  # Existing Codex gpt-5.5 behavior: raise Harry's compaction trigger to 85%
   # for the ChatGPT Codex OAuth route. Set false to opt back down to threshold.
   codex_gpt55_autoraise: true
 
@@ -714,7 +714,7 @@ compression:
   max_attempts: 3
 
   # Codex app-server (codex CLI runtime) thread-compaction mode. The codex
-  # agent owns the real thread context on this runtime, so Harry' summarizer
+  # agent owns the real thread context on this runtime, so Harry's summarizer
   # cannot shrink it — compaction goes through the app server instead.
   #   native = let Codex decide when to compact its own thread (default)
   #   harry = let Harry threshold trigger Codex thread/compact/start
@@ -726,7 +726,7 @@ compression:
   # Codex subscription, plus exact gpt-6-astra on official Codex OAuth, compact
   # server-side: OpenAI prunes older context into an
   # encrypted checkpoint that Harry replays on later turns. No other provider,
-  # route, or model is affected. Harry' local compression stays armed as the
+  # route, or model is affected. Harry's local compression stays armed as the
   # fallback and still handles every non-eligible session.
   codex_responses_native: false
 

@@ -314,7 +314,7 @@ def _managed_bin_dir() -> str:
 
 
 def _find_cli() -> Optional[List[str]]:
-    """Locate the browser-use CLI, or None when it can't be run. MANAGED-FIRST: Harry' own ``$HARRY_HOME/bin``
+    """Locate the browser-use CLI, or None when it can't be run. MANAGED-FIRST: Harry's own ``$HARRY_HOME/bin``
     copy always wins so every session drives one Harry-controlled binary; PATH and the user-level tool dir
     (~/.local/bin, or uv's %APPDATA%/uv/bin on Windows — Desktop/TUI workers may start with a minimal PATH
     that omits it) are fallbacks; uvx zero-install (same probe order) is last."""
@@ -521,7 +521,7 @@ def _resolve_lightpanda_cdp(
 def _resolve_managed_chromium_cdp(
     env: dict, task_id: Optional[str], session_name: str = ""
 ) -> Optional[str]:
-    """Point the harness at Harry' packaged Chromium, launched through agent-browser for this cache key —
+    """Point the harness at Harry's packaged Chromium, launched through agent-browser for this cache key —
     the same browser the built-in tools drive. Left alone, the harness discovers the user's INSTALLED
     Chrome on its default profile, which needs the chrome://inspect toggle + an Allow popup per run and
     is blocked outright on Chrome >=136; on a headless box it just reports ``chrome-not-running``.
@@ -577,7 +577,7 @@ def _resolve_backend_cdp(
     Precedence: (1) ``BU_CDP_WS``/``BU_CDP_URL`` already in env (operator override); (2) ``BROWSER_CDP_URL``
     env / ``browser.cdp_url`` (``/browser connect``); (3) a cloud provider via the legacy ``_get_session_info()``
     so browser_exec shares the SAME session machinery (per-task cache, expiry, reaper, atexit);
-    (4) the local engine — ``browser.engine: lightpanda`` or Harry' packaged Chromium via agent-browser
+    (4) the local engine — ``browser.engine: lightpanda`` or Harry's packaged Chromium via agent-browser
     (never the harness's own discovery of the user's installed Chrome); (5) BU direct-API configs → None:
     the CLI reaches BU cloud natively (BU_AUTOSPAWN). ``session_name`` (BU_NAME) keys the session cache so
     each name gets its OWN browser — what makes named sessions concurrent-safe.

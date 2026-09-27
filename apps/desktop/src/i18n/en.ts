@@ -411,17 +411,17 @@ export const en: Translations = {
     // Plain causes for a local backend boot failure (`classifyBootFailure`);
     // the raw output stays behind "Show recent logs".
     causes: {
-      exitedEarly: "Harry' background service stopped right after starting.",
-      timedOut: "Harry' background service didn't answer in time.",
+      exitedEarly: "Harry's background service stopped right after starting.",
+      timedOut: "Harry's background service didn't answer in time.",
       permission: "Harry couldn't write to its data folder (permission problem).",
       diskFull: 'The disk is full, so Harry could not start.',
       portInUse: 'Another program is using the network port Harry needs.',
-      installMissing: "Part of Harry' installation is missing. Choose Repair install to put it back."
+      installMissing: "Part of Harry's installation is missing. Choose Repair install to put it back."
     },
     failure: {
       title: "Harry couldn't start",
       description:
-        "Harry' background service didn't come up. Try one of the recovery steps below. Nothing here deletes your chats or settings.",
+        "Harry's background service didn't come up. Try one of the recovery steps below. Nothing here deletes your chats or settings.",
       details: 'Details',
       remoteTitle: 'Remote gateway sign-in required',
       remoteDescription:
@@ -496,7 +496,7 @@ export const en: Translations = {
       gatewayAuthFailed:
         'This Harry no longer accepts your saved sign-in. Open Gateways and sign in again (or paste a new access token), then retry.',
       methodNotAllowed:
-        "Harry' background service is out of step with the app, probably after an update. Restart it to fix this.",
+        "Harry's background service is out of step with the app, probably after an update. Restart it to fix this.",
       microphonePermission: 'Microphone permission was denied.',
       openaiRejectedApiKey: "OpenAI didn't accept your API key. Update it in Settings → Keys, then try again.",
       openaiTtsNeedsKey: 'Voice needs an OpenAI key. Add one in Settings → Keys.',

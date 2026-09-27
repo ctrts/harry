@@ -2900,7 +2900,7 @@ install_browser_use_cli() {
         log_info "Skipping Browser Use CLI install (uv unavailable)"
         return 0
     fi
-    # MANAGED-FIRST: only Harry' managed copy short-circuits. A browser-use
+    # MANAGED-FIRST: only Harry's managed copy short-circuits. A browser-use
     # on the user's PATH is a side install — resolution prefers the managed
     # copy, so it must be provisioned regardless.
     if [ -x "$HARRY_HOME/bin/browser-use" ]; then
@@ -2909,7 +2909,7 @@ install_browser_use_cli() {
     fi
 
     log_info "Installing Browser Use CLI (default browser backend)..."
-    # UV_TOOL_BIN_DIR keeps the binary inside Harry' managed bin dir, where
+    # UV_TOOL_BIN_DIR keeps the binary inside Harry's managed bin dir, where
     # the browser tool resolves it — no reliance on the user's PATH.
     if run_with_timeout 600 env UV_NO_CONFIG=1 UV_TOOL_BIN_DIR="$HARRY_HOME/bin" \
         "$UV_CMD" tool install browser-use >/dev/null 2>&1; then
@@ -2986,7 +2986,7 @@ install_computer_use_driver() {
     # Same upstream installer `harry computer-use install` runs; time-boxed
     # so a stalled GitHub download can't hang the Harry install. The
     # upstream installer serializes with its own lock (600s stale window),
-    # so give it a ceiling above that — matching Harry'
+    # so give it a ceiling above that — matching Harry's
     # _CUA_INSTALLER_TIMEOUT (660s).
     local cua_log
     cua_log="$(mktemp)"

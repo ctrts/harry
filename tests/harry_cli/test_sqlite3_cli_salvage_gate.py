@@ -9,7 +9,7 @@ lock has been cancelled, it unlinks the live -wal/-shm pair and splits the
 store into two concurrent generations. Both generations report
 ``integrity_check ok`` while an old-generation acknowledged write is lost.
 
-Harry' own corruption banners used to instruct exactly that command
+Harry's own corruption banners used to instruct exactly that command
 (`sqlite3 ~/.harry/state.db ".recover"`). The fix routes operators to
 `harry sessions recover --source ...`, whose lane snapshots the damaged
 bundle before any shell touches it, and refuses a WAL-reset-vulnerable

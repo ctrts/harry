@@ -1100,7 +1100,7 @@ class TestFindCliManagedBin:
         assert bu_cli._find_cli_unpatched() == [str(cli)]
 
     def test_managed_bin_precedes_user_local_bin(self, tmp_path, monkeypatch):
-        """MANAGED-FIRST: Harry' managed copy wins over a user-level side
+        """MANAGED-FIRST: Harry's managed copy wins over a user-level side
         install — every backend selection provisions/updates the managed
         copy, so resolution must land on the binary we control (no version
         drift from stray `uv tool install` runs)."""

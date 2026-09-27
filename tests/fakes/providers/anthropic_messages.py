@@ -353,7 +353,7 @@ def error_envelope(err: ApiError) -> dict[str, Any]:
 
 
 class AnthropicMessagesServer:
-    """Threaded loopback Messages endpoint. ``base_url`` ends in ``/anthropic`` so Harry'
+    """Threaded loopback Messages endpoint. ``base_url`` ends in ``/anthropic`` so Harry's
     native ``anthropic`` provider accepts it as an Anthropic-protocol override."""
 
     def __init__(

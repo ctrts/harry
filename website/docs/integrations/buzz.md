@@ -12,7 +12,7 @@ Harry integrates with Buzz three ways. Pick by where Harry runs and what you wan
 
 | | ① Desktop runtime | ② Relay bridge (ACP) | ③ Native gateway platform |
 |---|---|---|---|
-| **What it is** | Buzz Desktop spawns Harry locally as a managed harness | Buzz's `buzz-acp` bridges a channel to `harry acp` over stdio | Harry' gateway joins Buzz as a first-class messaging platform |
+| **What it is** | Buzz Desktop spawns Harry locally as a managed harness | Buzz's `buzz-acp` bridges a channel to `harry acp` over stdio | Harry's gateway joins Buzz as a first-class messaging platform |
 | **Harry runs** | On your desktop, launched by Buzz | On a server, launched by `buzz-acp` | In your own gateway, alongside Telegram/Discord/etc. |
 | **Best for** | Trying Harry inside Buzz Desktop with zero config | A hosted agent identity when Buzz owns the transport | Full Harry: memory, skills, approvals, cron, sessions |
 | **Inbound** | ACP stdio | ACP stdio (via relay WebSocket) | NIP-42-authenticated Nostr WebSocket (poll fallback) |
@@ -36,7 +36,7 @@ The spawned Harry uses the same config, credentials, memory, and skills as `harr
 
 ## ③ Native gateway platform (recommended for full Harry)
 
-The bundled `buzz` platform plugin makes Buzz a normal Harry messaging platform — channels, DMs, mention gating, threaded replies, reactions, images, and cron delivery (`deliver=buzz`), with Harry' own approvals, memory, and session management intact. Inbound arrives over a persistent NIP-42-authenticated Nostr WebSocket (dependency-free BIP-340 signing) with automatic fallback to CLI polling; outbound goes through the `buzz` CLI.
+The bundled `buzz` platform plugin makes Buzz a normal Harry messaging platform — channels, DMs, mention gating, threaded replies, reactions, images, and cron delivery (`deliver=buzz`), with Harry's own approvals, memory, and session management intact. Inbound arrives over a persistent NIP-42-authenticated Nostr WebSocket (dependency-free BIP-340 signing) with automatic fallback to CLI polling; outbound goes through the `buzz` CLI.
 
 ```bash
 harry gateway setup   # pick Buzz

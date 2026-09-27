@@ -47,7 +47,7 @@ This keeps personality predictable.
 If Harry loaded `SOUL.md` from whatever directory you happened to launch it in, your personality could change unexpectedly between projects. By loading only from `HARRY_HOME`, the personality belongs to the Harry instance itself.
 
 That also makes it easier to teach users:
-- "Edit `~/.harry/SOUL.md` to change Harry' default personality."
+- "Edit `~/.harry/SOUL.md` to change Harry's default personality."
 
 ## Where to edit it
 

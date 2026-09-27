@@ -225,7 +225,7 @@ def apply(
         ok, ver = _check_binary_cached(codex_bin)
         if ok:
             msg_lines.append(f"codex CLI: {ver}")
-        # Migrate Harry' MCP servers + Codex's curated plugins into ~/.codex/config.toml so the
+        # Migrate Harry's MCP servers + Codex's curated plugins into ~/.codex/config.toml so the
         # spawned codex subprocess sees the same tool surface AND can call back into Harry.
         msg_lines.extend(_migration_lines(config))
         msg_lines.append(

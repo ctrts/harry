@@ -174,7 +174,7 @@ _DIRECT_OPENAI_CLASS_PATH = "plugins.memory.mem0._openai_llm.DirectOpenAILLM"
 
 
 def _register_direct_openai_provider() -> None:
-    """Register Harry' OpenAI-only Mem0 LLM provider once per factory."""
+    """Register Harry's OpenAI-only Mem0 LLM provider once per factory."""
     from mem0.configs.llms.openai import OpenAIConfig
     from mem0.utils.factory import LlmFactory
 

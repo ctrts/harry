@@ -98,7 +98,7 @@ class TestNousReasoningWireShape:
     ):
         """A route the catalog says takes no reasoning parameter gets none.
 
-        Harry' own ``supports_reasoning`` can disagree with the Portal about a
+        Harry's own ``supports_reasoning`` can disagree with the Portal about a
         given route; when it does, the catalog of the service actually serving
         the model wins, and we don't send it a parameter it doesn't accept.
         """

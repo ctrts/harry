@@ -113,7 +113,7 @@ def _check_auth_providers(should_fix: bool, f: Finding) -> None:
         )
 
         _login_row("Nous Portal auth", get_nous_auth_status_local())
-        # Native OAuth is Harry' own device-code flow; the Codex CLI only imports existing ~/.codex/auth.json
+        # Native OAuth is Harry's own device-code flow; the Codex CLI only imports existing ~/.codex/auth.json
         # tokens, so the hint sits under the Codex row (not as another provider's remedy).
         if not _login_row(
             "OpenAI Codex auth", get_codex_auth_status(), show_error=True

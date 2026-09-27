@@ -906,7 +906,7 @@ THREAT_PATTERNS = [
         "skill declares allowed-tools (standard frontmatter; informational)",
     ),
     # `sudo.request` / `sudo.respond` are gateway wire events (the masked sudo-password prompt), not an
-    # invocation: any client plugin that relays Harry' secure prompts has to name them, and a bare
+    # invocation: any client plugin that relays Harry's secure prompts has to name them, and a bare
     # `\bsudo\b` made every such plugin `caution`. A dotted event name is never a shell `sudo`.
     (
         r"\bsudo\b(?!\.(?:request|respond)\b)",

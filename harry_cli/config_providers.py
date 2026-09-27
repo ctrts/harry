@@ -118,7 +118,7 @@ _CAMEL_ALIASES: Dict[str, str] = {
 
 
 _KNOWN_PROVIDER_KEYS = {
-    # ``provider`` duplicates the ``providers.<name>`` mapping key and is unused here, but Harry'
+    # ``provider`` duplicates the ``providers.<name>`` mapping key and is unused here, but Harry's
     # own config writer has historically emitted it. Accept it so self-written configs don't warn.
     "provider",
     "name",

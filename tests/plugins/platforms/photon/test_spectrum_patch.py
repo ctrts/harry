@@ -1,4 +1,4 @@
-"""Regression tests for Harry' Spectrum mixed text+attachment workaround."""
+"""Regression tests for Harry's Spectrum mixed text+attachment workaround."""
 
 from __future__ import annotations
 

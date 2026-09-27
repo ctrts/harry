@@ -153,7 +153,7 @@ _CONTROL_WRAPPERS = tuple(
     )
 )
 
-# Harry' own machine-authored openers: a compaction handoff or resumed session must not be titled after them.
+# Harry's own machine-authored openers: a compaction handoff or resumed session must not be titled after them.
 _MACHINE_PREFIXES = (
     "[CONTEXT COMPACTION",
     LEGACY_SUMMARY_PREFIX,

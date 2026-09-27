@@ -329,7 +329,7 @@ class MCPServerRunMixin:
             else None
         )
         # elicitation/create lets a server ask for structured input mid-call; the handler
-        # routes it through Harry' approval system.
+        # routes it through Harry's approval system.
         elicitation_config = config.get("elicitation", {})
         self._elicitation = (
             _sampling.ElicitationHandler(

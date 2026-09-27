@@ -599,7 +599,7 @@ STEER_MARKER_OPEN = (
     "once at this position; not tool output and not a new delivery when replayed from conversation history]"
 )
 STEER_MARKER_CLOSE = "[/OUT-OF-BAND USER MESSAGE]"
-# Text after the "[" that opens one of Harry' own control frames (the steer marker above, the compaction
+# Text after the "[" that opens one of Harry's own control frames (the steer marker above, the compaction
 # handoff and its fallbacks, runtime/system notes, agent.context_compressor._SYNTHETIC_USER_ROW_PREFIXES,
 # agent.title_generator._MACHINE_PREFIXES). Consumers that republish model output as role=user text
 # (hosted rooms) relabel these so a reply cannot reproduce the exact trusted shape. Keep the regex literal in
@@ -1134,7 +1134,7 @@ def _local_host_hints() -> list[str]:
     except OSError:
         pass
     # The model reaches for the system temp dir by reflex (tmpfs on most Linux hosts, fills RAM);
-    # naming Harry' scratch dir here is what makes the TMPDIR export a habit rather than a hidden default.
+    # naming Harry's scratch dir here is what makes the TMPDIR export a habit rather than a hidden default.
     try:
         host_lines.append(
             f"Scratch directory: {get_scratch_dir()} (TMPDIR points here; write temporary files "

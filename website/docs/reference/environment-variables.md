@@ -827,7 +827,7 @@ Advanced per-platform knobs for throttling the outbound message batcher. Most us
 | `HARRY_TOOL_PROGRESS_MODE` | Deprecated compatibility variable for tool progress mode (still read by the gateway as a fallback). Prefer `display.tool_progress` in `config.yaml`. |
 | `HARRY_HUMAN_DELAY_MODE` / `HARRY_HUMAN_DELAY_MIN_MS` / `HARRY_HUMAN_DELAY_MAX_MS` | No longer read. Response pacing is the `human_delay` section of each profile's `config.yaml` (`mode`, `min_ms`, `max_ms`), so multiplexed profiles keep independent pacing. |
 | `HARRY_QUIET` | Suppress non-essential output (`true`/`false`) |
-| `CODEX_HOME` | When [Codex app-server runtime](../user-guide/features/codex-app-server-runtime) is enabled, override the directory Codex CLI reads its config + auth from (default: `~/.codex`). Harry' migration writes the managed block to `<CODEX_HOME>/config.toml`. |
+| `CODEX_HOME` | When [Codex app-server runtime](../user-guide/features/codex-app-server-runtime) is enabled, override the directory Codex CLI reads its config + auth from (default: `~/.codex`). Harry's migration writes the managed block to `<CODEX_HOME>/config.toml`. |
 | `HARRY_KANBAN_TASK` | Set by the kanban dispatcher when spawning a worker (task UUID). Workers and the spawned `harry-tools` MCP subprocess inherit it so kanban tools gate correctly. Don't set manually. |
 | `HARRY_ACP_SKIP_CONFIGURED_MCP` | Set by an [ACP host](../user-guide/features/acp#host-integration) on the Harry subprocess it spawns. `1` skips starting the globally configured `config.yaml` MCP servers before the ACP JSON-RPC loop, for hosts that pass the session's MCP servers through `session/new` themselves. Servers supplied by the ACP session are still registered; any other value keeps the default. Don't set manually. |
 | `HARRY_API_TIMEOUT` | LLM API call timeout in seconds (default: `1800`) |
@@ -897,7 +897,7 @@ Unset the variable or remove it from `.env` to restore normal writes (still subj
 | Variable | Description |
 |----------|-------------|
 | `HARRY_SESSION_ID` | **Exported automatically into every tool subprocess** Harry spawns (`terminal`, `execute_code`, persistent shell, Docker/Singularity backends, delegated subagent runs). Set by the agent to the current session ID; user scripts called from tools can read it to correlate their output, telemetry, or side effects with the originating Harry session. **You should not set this manually** — overriding it from a parent shell only takes effect outside an agent run, and is overwritten the moment the agent starts a session. |
-| `AI_AGENT` | **Set to `harry-agent` by the CLI and gateway entry points** (only when not already set by an outer harness), and exported into every terminal-tool shell — including remote backends (Docker, SSH, Modal, Daytona, Singularity, Vercel). The emerging cross-agent standard for child-process attribution — generic tooling (e.g. huggingface_hub's agent detection) reads it to know it runs under an AI agent. The value matches Harry' id in the public agent-harness registry. Don't set manually. |
+| `AI_AGENT` | **Set to `harry-agent` by the CLI and gateway entry points** (only when not already set by an outer harness), and exported into every terminal-tool shell — including remote backends (Docker, SSH, Modal, Daytona, Singularity, Vercel). The emerging cross-agent standard for child-process attribution — generic tooling (e.g. huggingface_hub's agent detection) reads it to know it runs under an AI agent. The value matches Harry's id in the public agent-harness registry. Don't set manually. |
 | `HARRY_AGENT` | **Set to `true` by the CLI and gateway entry points** and exported into every terminal-tool shell so child processes can detect they run inside Harry specifically. Don't set manually. |
 
 ## Context Compression (config.yaml only)
@@ -933,7 +933,7 @@ For task-specific direct endpoints, Harry uses the task's configured API key or 
 
 ## Fallback Providers (config.yaml only)
 
-The primary model fallback chain is configured exclusively through `config.yaml` — there are no environment variables for it. Add a top-level `fallback_providers` list with `provider` and `model` keys to enable automatic failover when your main model encounters errors. Auxiliary tasks whose provider is `auto` also consult this chain before Harry' built-in auxiliary discovery chain.
+The primary model fallback chain is configured exclusively through `config.yaml` — there are no environment variables for it. Add a top-level `fallback_providers` list with `provider` and `model` keys to enable automatic failover when your main model encounters errors. Auxiliary tasks whose provider is `auto` also consult this chain before Harry's built-in auxiliary discovery chain.
 
 ```yaml
 fallback_providers:

@@ -49,7 +49,7 @@ _Provisioned = tuple[Path, Path, SQLiteRuntimeInfo]
 
 
 def managed_uv_path() -> Path:
-    """Path of Harry' own uv binary (``$HARRY_HOME/bin/uv[.exe]``); may not exist yet."""
+    """Path of Harry's own uv binary (``$HARRY_HOME/bin/uv[.exe]``); may not exist yet."""
     return (
         get_harry_home()
         / "bin"
@@ -66,7 +66,7 @@ def resolve_uv() -> Optional[str]:
 def pip_install_hint(package: str) -> str:
     """Copy-pasteable command that installs *package* into the running interpreter.
 
-    Names Harry' own uv when it exists: the installer drops it in ``$HARRY_HOME/bin``
+    Names Harry's own uv when it exists: the installer drops it in ``$HARRY_HOME/bin``
     without putting that on PATH, so a bare ``uv`` would fail for installer-only users.
     """
     return f"{resolve_uv() or 'uv'} pip install --python {sys.executable} {package}"

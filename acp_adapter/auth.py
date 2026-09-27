@@ -56,7 +56,7 @@ def build_auth_methods() -> list[Any]:
             type="terminal",
             args=["--setup"],
             description=(
-                "Open Harry' interactive model/provider setup in a terminal. "
+                "Open Harry's interactive model/provider setup in a terminal. "
                 "Use this when Harry has not been configured on this machine yet."
             ),
         )

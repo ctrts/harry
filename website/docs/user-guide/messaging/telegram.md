@@ -164,7 +164,7 @@ platforms:
           - songsee          # skill commands work here too
 ```
 
-`priority_mode` controls how your list combines with Harry' built-in priority list:
+`priority_mode` controls how your list combines with Harry's built-in priority list:
 
 - `prepend`: put your commands first, then Harry defaults
 - `append`: keep Harry defaults first, then your commands

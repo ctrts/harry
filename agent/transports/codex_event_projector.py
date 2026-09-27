@@ -21,7 +21,7 @@ def _deterministic_call_id(item_type: str, item_id: str) -> str:
 
 
 def _format_tool_args(d: dict) -> str:
-    """Format a dict as JSON the way Harry' existing tool_calls path does."""
+    """Format a dict as JSON the way Harry's existing tool_calls path does."""
     return json.dumps(d, ensure_ascii=False, sort_keys=True)
 
 
@@ -84,7 +84,7 @@ class CodexEventProjector:
     @staticmethod
     def _project_user_message(item: dict) -> ProjectionResult:
         # userMessage content is a list of UserInput variants; flatten text
-        # fragments and drop non-text parts (Harry' messages store text only).
+        # fragments and drop non-text parts (Harry's messages store text only).
         text_parts = [
             (
                 (fragment.get("text") or "")

@@ -11,7 +11,7 @@ MCP lets Harry Agent connect to external tool servers so the agent can use tools
 If you have ever wanted Harry to use a tool that already exists somewhere else, MCP is usually the cleanest way to do it.
 
 :::tip Coming from Claude Code?
-The `mcpServers` block in your `~/.claude.json` maps to `mcp_servers` in Harry' `config.yaml` — and `harry import-agent claude-code` migrates it (along with skills and instructions) automatically. See [Import from Other Agents](../import-from-other-agents.md).
+The `mcpServers` block in your `~/.claude.json` maps to `mcp_servers` in Harry's `config.yaml` — and `harry import-agent claude-code` migrates it (along with skills and instructions) automatically. See [Import from Other Agents](../import-from-other-agents.md).
 :::
 
 ## What MCP gives you

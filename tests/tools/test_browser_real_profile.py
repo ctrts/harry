@@ -630,7 +630,7 @@ class TestChannelIdentity:
 
 
 class TestSnapshotIsCredentialStore:
-    """The copied Cookies/Login Data must live inside Harry' secret lifecycle."""
+    """The copied Cookies/Login Data must live inside Harry's secret lifecycle."""
 
     def test_excluded_from_backup(self):
         import harry_cli.backup as bk

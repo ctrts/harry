@@ -108,7 +108,7 @@ def test_self_heals_missing_singleton_access_token_from_codex_cli(
 
 def test_opt_out_never_adopts_codex_cli_login(tmp_path, monkeypatch):
     """``auth.adopt_external_logins: false`` (#113023): the Codex CLI pair is a single-use refresh-token
-    family the user did not hand to Harry. Both automatic recovery paths must leave it (and Harry' own
+    family the user did not hand to Harry. Both automatic recovery paths must leave it (and Harry's own
     auth.json) untouched and surface the real error instead."""
     harry_home = tmp_path / "harry"
     codex_home = tmp_path / "codex"

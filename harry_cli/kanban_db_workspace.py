@@ -129,7 +129,7 @@ def _is_managed_scratch_path(p: Path) -> bool:
     or ``<kanban_home>/kanban/boards/<slug>/workspaces``). A path equal to a
     root is not managed (deleting it would wipe every task's scratch dir);
     ``<kanban_home>/kanban``, ``.../logs`` and ``.../boards/<slug>`` hold
-    Harry' own DB and metadata. :func:`_cleanup_workspace` refuses
+    Harry's own DB and metadata. :func:`_cleanup_workspace` refuses
     ``rmtree`` outside managed storage — a board ``default_workdir`` on a real
     source tree paired with ``workspace_kind='scratch'`` would otherwise make
     task completion delete user data.

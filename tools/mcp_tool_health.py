@@ -98,7 +98,7 @@ class MCPServerHealthMixin:
     def _make_logging_callback(self):
         """``logging_callback`` forwarding server ``notifications/message`` into Harry logging (SDK default drops them).
 
-        Routes MCP ``notifications/message`` log notifications from the server into Harry' logging
+        Routes MCP ``notifications/message`` log notifications from the server into Harry's logging
         (agent.log via harry_logging), tagged with the server name. Without this, the SDK's default
         callback silently discards them, so server-side warnings/errors during a tool call were invisible.
         Port of anomalyco/opencode#34529.
