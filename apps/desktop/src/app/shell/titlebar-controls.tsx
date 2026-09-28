@@ -15,6 +15,7 @@ import { useI18n } from '@/i18n'
 import { triggerHaptic } from '@/lib/haptics'
 import { formatModifierToken } from '@/lib/keybinds/combo'
 import { cn } from '@/lib/utils'
+import { $hapticsMuted, toggleHapticsMuted } from '@/store/haptics'
 import { toggleHud } from '@/store/hud'
 import { $interfaceMode, shownInMode, type Tiered } from '@/store/interface-mode'
 import {
@@ -144,6 +145,7 @@ export function TitlebarControls({ leftTools = [], tools = [], onOpenSettings }:
   const unreadCount = useStore($unreadSessionCount)
   const appActionsSide = useStore($titlebarAppActionsSide)
   const interfaceMode = useStore($interfaceMode)
+  const hapticsMuted = useStore($hapticsMuted)
   const unreadBadge = unreadCount > 0 ? unreadCount : undefined
   const unreadHint = unreadBadge ? ` · ${t.titlebar.unreadSessions(unreadBadge)}` : ''
   // One filter for every cluster: a tool's own `hidden`, then the mode's tier.
@@ -156,6 +158,20 @@ export function TitlebarControls({ leftTools = [], tools = [], onOpenSettings }:
   const titleBarLeft = useContributions('titleBar.left')
   const titleBarRight = useContributions('titleBar.right')
   const pageOwnsTitlebar = titleBarLeft.length + titleBarRight.length > 0
+
+  // Fire before muting so the press that silences it still registers, and
+  // after unmuting so the press that restores it is felt.
+  const toggleHaptics = () => {
+    if (!hapticsMuted) {
+      triggerHaptic('tap')
+    }
+
+    toggleHapticsMuted()
+
+    if (hapticsMuted) {
+      window.requestAnimationFrame(() => triggerHaptic('success'))
+    }
+  }
 
   // POSITIONAL toggles: each button shows/hides everything on its physical
   // side of the main zone (the layout tree collapses the whole side), so they
@@ -210,17 +226,6 @@ export function TitlebarControls({ leftTools = [], tools = [], onOpenSettings }:
   // left titlebar stays free for tabs (#107351).
   const systemTools: TitlebarTool[] = [
     {
-      ...TITLEBAR_FIXED_TOOLS.settings,
-      actionId: 'nav.settings',
-      icon: <TitlebarIcon name="settings-gear" />,
-      id: 'settings',
-      label: t.titlebar.openSettings,
-      onSelect: () => {
-        triggerHaptic('open')
-        onOpenSettings()
-      }
-    },
-    {
       ...TITLEBAR_FIXED_TOOLS.layout,
       className: 'group/tool',
       // Hover + held ⌘/Ctrl morphs the glyph into its reset form (see
@@ -254,6 +259,25 @@ export function TitlebarControls({ leftTools = [], tools = [], onOpenSettings }:
       onSelect: () => {
         triggerHaptic('open')
         toggleHud(hudTargetSessionId())
+      }
+    },
+    {
+      ...TITLEBAR_FIXED_TOOLS.haptics,
+      active: hapticsMuted,
+      icon: <TitlebarIcon name={hapticsMuted ? 'mute' : 'unmute'} />,
+      id: 'haptics',
+      label: hapticsMuted ? t.titlebar.unmuteHaptics : t.titlebar.muteHaptics,
+      onSelect: toggleHaptics
+    },
+    {
+      ...TITLEBAR_FIXED_TOOLS.settings,
+      actionId: 'nav.settings',
+      icon: <TitlebarIcon name="settings-gear" />,
+      id: 'settings',
+      label: t.titlebar.openSettings,
+      onSelect: () => {
+        triggerHaptic('open')
+        onOpenSettings()
       }
     }
   ]
@@ -305,13 +329,17 @@ export function TitlebarControls({ leftTools = [], tools = [], onOpenSettings }:
     )
   }
 
+  // Sidebar toggle and flip stay together on the left, as in the reference
+  // titlebar; only the app actions follow `side`.
   const visibleLeftTools = (
-    appActionsSide === 'left' ? [sidebarTool, ...systemTools, ...leftTools] : [sidebarTool, ...leftTools]
+    appActionsSide === 'left'
+      ? [sidebarTool, flipTool, ...systemTools, ...leftTools]
+      : [sidebarTool, flipTool, ...leftTools]
   ).filter(visibleTool)
 
   const visibleSystemTools = appActionsSide === 'right' ? systemTools.filter(visibleTool) : []
   const visiblePaneTools = tools.filter(visibleTool)
-  const visibleRightFixedTools = [flipTool, rightSidebarTool].filter(visibleTool)
+  const visibleRightFixedTools = [rightSidebarTool].filter(visibleTool)
 
   return (
     <>

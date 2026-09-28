@@ -193,6 +193,20 @@ describe('titlebar app-action cluster', () => {
     cleanup()
   })
 
+  it('keeps the flip toggle beside the sidebar toggle on both sides', () => {
+    for (const side of ['right', 'left'] as const) {
+      setTitlebarAppActionsSide(side)
+      renderControls('/')
+
+      const left = screen.getByLabelText('Window controls')
+      const right = screen.getByLabelText('App controls')
+
+      expect(within(left).getByLabelText('Swap sidebar sides')).toBeTruthy()
+      expect(within(right).queryByLabelText('Swap sidebar sides')).toBeNull()
+      cleanup()
+    }
+  })
+
   it('moves settings, layout, and HUD to the left when the appearance setting says left', () => {
     setTitlebarAppActionsSide('left')
     renderControls('/')

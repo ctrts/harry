@@ -31,6 +31,7 @@ export function setTitlebarAppActionsSide(side: TitlebarAppActionsSide) {
  */
 export const TITLEBAR_FIXED_TOOLS = {
   'flip-panes': { tier: 'advanced' },
+  haptics: {},
   hud: { tier: 'advanced' },
   layout: {},
   'right-sidebar': { tier: 'advanced' },
@@ -40,9 +41,12 @@ export const TITLEBAR_FIXED_TOOLS = {
 
 export type TitlebarFixedToolId = keyof typeof TITLEBAR_FIXED_TOOLS
 
-/** The app actions that follow `side`; the sidebar toggle is always left, flip and the right-sidebar toggle always right. */
-const APP_ACTION_IDS: readonly TitlebarFixedToolId[] = ['settings', 'layout', 'hud']
-const RIGHT_FIXED_IDS: readonly TitlebarFixedToolId[] = ['flip-panes', 'right-sidebar']
+/** Always in the left cluster: the sidebar toggle and the flip beside it. */
+const LEFT_FIXED_IDS: readonly TitlebarFixedToolId[] = ['sidebar', 'flip-panes']
+/** The app actions that follow `side`. */
+const APP_ACTION_IDS: readonly TitlebarFixedToolId[] = ['layout', 'hud', 'haptics', 'settings']
+/** Always in the right cluster, whichever side the app actions take. */
+const RIGHT_FIXED_IDS: readonly TitlebarFixedToolId[] = ['right-sidebar']
 
 /** Button counts for the two titlebar clusters, for the mode that is rendering them. */
 export function titlebarAppActionsClusterCounts(
@@ -52,13 +56,13 @@ export function titlebarAppActionsClusterCounts(
   mode: InterfaceMode = DEFAULT_INTERFACE_MODE
 ): { left: number; right: number } {
   const shown = shownInMode(mode)
-  const sidebar = 1
+  const leftFixed = LEFT_FIXED_IDS.filter(id => shown(TITLEBAR_FIXED_TOOLS[id])).length
   const appActions = APP_ACTION_IDS.filter(id => shown(TITLEBAR_FIXED_TOOLS[id])).length
   const rightFixed = RIGHT_FIXED_IDS.filter(id => shown(TITLEBAR_FIXED_TOOLS[id])).length
 
   if (side === 'left') {
-    return { left: sidebar + appActions + leftExtras, right: rightFixed + rightExtras }
+    return { left: leftFixed + appActions + leftExtras, right: rightFixed + rightExtras }
   }
 
-  return { left: sidebar + leftExtras, right: appActions + rightFixed + rightExtras }
+  return { left: leftFixed + leftExtras, right: appActions + rightFixed + rightExtras }
 }
